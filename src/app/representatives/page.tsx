@@ -1,3 +1,6 @@
+import { RepresentativeForm } from "@/features/representative-choice/components/representative-form";
+
+
 export default function Page() {
   return (
     <main>
@@ -7,13 +10,7 @@ export default function Page() {
       </section>
       <section>
        <h2>Add new representative</h2>
-       <form action="submit">
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Adrienn Pozsgai" />
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="adrienn.pozsgai@gmail.com" />
-        <button type="submit">Add representative</button>
-       </form>
+       <RepresentativeForm/>
       </section>
     </main>
   );
