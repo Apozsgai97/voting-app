@@ -5,7 +5,12 @@ export async function Representatives() {
  
  return (
    <section>
-     <p>{representatives[0].email}</p>
+     {representatives.map((representative, index) => (
+       <div key={index}>
+         <p>{representative.name}</p>
+         <button>Read more</button>
+       </div>
+     ))}
    </section>
  );
 }

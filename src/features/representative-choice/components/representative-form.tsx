@@ -1,6 +1,6 @@
 export function RepresentativeForm() {
   return (
-    <form action="submit" className="flex flex-col p-8 border-primary border-2 w-2/6 rounded-lg border-emerald-950">
+    <form action="submit" className="flex flex-col p-8 border-2 w-2/6 rounded-lg border-emerald-950">
       <label htmlFor="name" className="label-text pl-6">
         Name
       </label>
