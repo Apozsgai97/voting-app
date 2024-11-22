@@ -15,7 +15,6 @@ export default function Page() {
         <button type="submit">Add representative</button>
        </form>
       </section>
-
     </main>
   );
 }
