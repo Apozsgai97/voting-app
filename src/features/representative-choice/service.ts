@@ -1,18 +1,9 @@
+import { Repository } from "./repository";
 
-type Representative = {
- name: string ,
- email: string,
-}
-const db:Representative[] = [{
- name: "Matt",
- email: "aa@gmail.com"
-}];
-
-export function createService(){
+export function createService(repository:Repository){
  return{
   async getAllRepresentatives(){
-   const representatives = db
-   return representatives
+   return await repository.getAllRepresentatives();
   }
  }
 }

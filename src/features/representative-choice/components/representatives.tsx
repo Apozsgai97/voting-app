@@ -1,11 +1,11 @@
-import { representativeService } from "../instance";
+import { representativeFeature } from "../instance";
 
 export async function Representatives() {
- const representatives =  await representativeService.getAllRepresentatives()
+ const representatives =  await representativeFeature.service.getAllRepresentatives()
  
  return (
    <section>
-     <p>{representatives[0].name}</p>
+     <p>{representatives[0].email}</p>
    </section>
  );
 }

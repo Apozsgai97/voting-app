@@ -1,3 +1,3 @@
-import { createService } from "./service";
+import { createRepresentativeFeature } from "./feature";
 
-export const representativeService = createService();
+export const representativeFeature = createRepresentativeFeature();
