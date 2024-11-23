@@ -1,16 +1,38 @@
+import { z } from "zod";
 import { Repository, Representative } from "./repository";
 
-export function createService(repository:Repository){
- return{
-  async getAllRepresentatives(){
-   return await repository.getAllRepresentatives();
-  },
-  async addRepresentative(name: string, email:string){
-   const representative: Representative = {
-    name: name,
-    email: email,
-   }
-   repository.addRepresentative(representative);
-  }
- }
+const NameSchema = z
+  .string({
+    required_error: "Name is required",
+    invalid_type_error: "Name must be a string",
+  })
+  .min(1, { message: "This field has to be filled." });
+
+const EmailSchema = z
+  .string()
+  .min(1, { message: "This field has to be filled." })
+  .email("This is not a valid email.");
+
+export function createService(repository: Repository) {
+  return {
+    async getAllRepresentatives() {
+      return await repository.getAllRepresentatives();
+    },
+    async addRepresentative(name: string, email: string) {
+      const validatedName = NameSchema.safeParse(name);
+      const validatedEmail = EmailSchema.safeParse(email)
+
+      if (!validatedName.success || !validatedEmail.success) {
+        return {
+          message: "Please provide a valid name and email.",
+        };
+      }
+
+      const representative: Representative = {
+        name: validatedName.data,
+        email: validatedEmail.data,
+      };
+      repository.addRepresentative(representative);
+    },
+  };
 }
