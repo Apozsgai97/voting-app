@@ -3,12 +3,19 @@ import { representativeFeature } from "../instance";
 type Props = {
   status: "voted" | "unvoted";
   setStatus: React.Dispatch<React.SetStateAction<"voted" | "unvoted">>;
+  repId: string;
 };
 
-export function VoteButton({ status, setStatus }: Props) {
+export function VoteButton({
+  status,
+  setStatus,
+  repId,
+
+}: Props) {
   async function handleVote() {
-   setStatus("voted");
-   await representativeFeature.service.changeRepIdForPublicUser("m")
+     if (status === "voted") return; 
+    setStatus("voted");
+    await representativeFeature.service.changeRepIdForPublicUser(repId);
   }
 
   return (

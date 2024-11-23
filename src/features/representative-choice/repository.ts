@@ -29,7 +29,7 @@ const representatives: Representative[] = [
 
 const publicUser = {
   id: "a3c6f123-4e4a-42b5-80d9-e6b0cd7f5a4f",
-  repId: "",
+  repId: "880e8400-e29b-41d4-a716-446655440333",
 };
 
 export function createRepository() {
@@ -48,7 +48,10 @@ export function createRepository() {
     },
     async changeRepIdForPublicUser(newRepId: string) {
       if (publicUser.repId !== newRepId) publicUser.repId = newRepId;
-      console.log(publicUser)
+     
+    },
+    async getPublicUserRepId() {
+      return publicUser.repId
     },
   };
 }

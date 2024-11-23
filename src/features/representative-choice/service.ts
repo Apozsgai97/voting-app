@@ -38,11 +38,14 @@ export function createService(repository: Repository) {
 
       repository.addRepresentative(representative);
     },
-    async getRepresentativeById(id:string) {
+    async getRepresentativeById(id: string) {
       return await repository.getRepresentativeById(id);
     },
-    async changeRepIdForPublicUser(newRepId: string){
+    async changeRepIdForPublicUser(newRepId: string) {
       repository.changeRepIdForPublicUser(newRepId);
-    }
+    },
+    async getPublicUserRepId() {
+      return await repository.getPublicUserRepId();
+    },
   };
 }

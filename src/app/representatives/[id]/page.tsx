@@ -9,12 +9,16 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const representative =
     await representativeFeature.service.getRepresentativeById(id);
 
+    const publicUserRepId =
+      await representativeFeature.service.getPublicUserRepId();
+ 
+
   return (
     <main className="flex flex-col justify-center items-center p-0">
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
         {representative.name}
       </h1>
-      <Buttons/>
+      <Buttons repId={id} publicUserRepId={publicUserRepId}/>
       <div className="flex w-48 items-center justify-between"></div>
       <article className="stats shadow my-8">
         <div className="stat text-center">

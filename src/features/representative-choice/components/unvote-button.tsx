@@ -7,8 +7,9 @@ type Props = {
 export function UnvotedButton({ status, setStatus }: Props) {
   
  async function handleUnvote() {
+   if (status === "unvoted") return; 
    setStatus("unvoted");
-   await representativeFeature.service.changeRepIdForPublicUser("u");
+   await representativeFeature.service.changeRepIdForPublicUser("");
   }
 
   return (
