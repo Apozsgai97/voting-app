@@ -15,5 +15,4 @@ export async function addRepresentative(formData: FormData) {
 
 export async function changeRepId(id:string) {
   await representativeFeature.service.changeRepIdForPublicUser(id);
-  console.log(id);
 }
