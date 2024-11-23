@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { representativeFeature } from "../instance";
 
 export async function Representatives() {
@@ -18,9 +19,14 @@ export async function Representatives() {
              <tr className="py-4">
                <th>{index + 1}</th>
                <td>{representative.name}</td>
-               <td><button className="btn bg-emerald-950 text-gray-100 hover:bg-emerald-900">
-                 Read more
-               </button></td>
+               <td>
+                 <Link
+                   href={`/representatives/${representative.id}`}
+                   className="btn bg-emerald-900 text-gray-100 hover:bg-emerald-800 px-4 py-2 rounded-lg"
+                 >
+                   Read more
+                 </Link>
+               </td>
              </tr>
            </tbody>
          ))}

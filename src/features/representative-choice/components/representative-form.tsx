@@ -30,7 +30,7 @@ export async function RepresentativeForm() {
       <div>
         <button
           type="submit"
-          className="btn bg-emerald-950 text-gray-100 hover:bg-emerald-900"
+          className="btn bg-emerald-900 text-gray-100 hover:bg-emerald-800 rounded-lg"
         >
           Add representative
         </button>
