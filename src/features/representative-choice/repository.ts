@@ -28,15 +28,21 @@ const representatives: Representative[] = [
 ];
 
 export function createRepository(){
- return{
-  async getAllRepresentatives(){
-   return await representatives;
-  },
-  async addRepresentative(representative: Representative){
-   representatives.push(representative)
-
-  }
- }
+ return {
+   async getAllRepresentatives() {
+     return await representatives;
+   },
+   async addRepresentative(representative: Representative) {
+     representatives.push(representative);
+   },
+   async getRepresentativeById(id:string) {
+     const representative = representatives.find(
+        (representative) => id === representative.id
+      );
+    
+    return await representative!;
+   },
+ };
 }
 
 export type Repository = ReturnType<typeof createRepository>;

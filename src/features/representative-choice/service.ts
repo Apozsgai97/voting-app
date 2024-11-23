@@ -38,5 +38,8 @@ export function createService(repository: Repository) {
 
       repository.addRepresentative(representative);
     },
+    async getRepresentativeById(id:string) {
+      return await repository.getRepresentativeById(id);
+    },
   };
 }

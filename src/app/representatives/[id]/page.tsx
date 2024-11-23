@@ -1,35 +1,32 @@
+import { representativeFeature } from "@/features";
+import { Buttons } from "@/features/representative-choice/components/buttons";
+
+
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = params.id;
-  console.log({id})
+
+  const representative =
+    await representativeFeature.service.getRepresentativeById(id);
 
   return (
     <main className="flex flex-col justify-center items-center p-0">
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
-        Representative name
+        {representative.name}
       </h1>
-      <div className="flex w-48 items-center justify-between">
-        <button
-          type="submit"
-          className="btn bg-emerald-900 text-gray-100 hover:bg-emerald-800 rounded-lg w-20"
-        >
-          Vote
-        </button>
-        <button
-          type="submit"
-          className="btn bg-emerald-900 text-gray-100 hover:bg-emerald-800 rounded-lg w-20"
-        >
-          Unvote
-        </button>
-      </div>
+      <Buttons/>
+      <div className="flex w-48 items-center justify-between"></div>
       <article className="stats shadow my-8">
         <div className="stat text-center">
           <div className="stat-title">Public votes</div>
           <div className="stat-value">0</div>
         </div>
       </article>
-      <div>
-        <h2 className="text-2xl font-bold">Previous votes</h2>
+      <article>
+        <p>
+          <span className="font-bold">Email:</span> {representative.email}
+        </p>
+        <h2 className="text-2xl font-bold mt-4">Previous votes</h2>
         <div className="overflow-x-auto">
           <table className="table">
             <thead>
@@ -50,7 +47,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
             </tbody>
           </table>
         </div>
-      </div>
+      </article>
     </main>
   );
 }
