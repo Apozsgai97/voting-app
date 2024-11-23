@@ -41,5 +41,8 @@ export function createService(repository: Repository) {
     async getRepresentativeById(id:string) {
       return await repository.getRepresentativeById(id);
     },
+    async changeRepIdForPublicUser(newRepId: string){
+      repository.changeRepIdForPublicUser(newRepId);
+    }
   };
 }

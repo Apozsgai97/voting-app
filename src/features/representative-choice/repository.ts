@@ -1,6 +1,6 @@
 export type Representative = {
- id: string;
- name: string;
+  id: string;
+  name: string;
   email: string;
 };
 
@@ -27,22 +27,30 @@ const representatives: Representative[] = [
   },
 ];
 
-export function createRepository(){
- return {
-   async getAllRepresentatives() {
-     return await representatives;
-   },
-   async addRepresentative(representative: Representative) {
-     representatives.push(representative);
-   },
-   async getRepresentativeById(id:string) {
-     const representative = representatives.find(
+const publicUser = {
+  id: "a3c6f123-4e4a-42b5-80d9-e6b0cd7f5a4f",
+  repId: "",
+};
+
+export function createRepository() {
+  return {
+    async getAllRepresentatives() {
+      return await representatives;
+    },
+    async addRepresentative(representative: Representative) {
+      representatives.push(representative);
+    },
+    async getRepresentativeById(id: string) {
+      const representative = representatives.find(
         (representative) => id === representative.id
       );
-    
-    return await representative!;
-   },
- };
+      return await representative!;
+    },
+    async changeRepIdForPublicUser(newRepId: string) {
+      if (publicUser.repId !== newRepId) publicUser.repId = newRepId;
+      console.log(publicUser)
+    },
+  };
 }
 
 export type Repository = ReturnType<typeof createRepository>;
