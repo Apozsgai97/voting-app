@@ -42,7 +42,8 @@ export function createService(repository: Repository) {
       return await repository.getRepresentativeById(id);
     },
     async changeRepIdForPublicUser(newRepId: string) {
-      repository.changeRepIdForPublicUser(newRepId);
+      console.log(newRepId)
+      await repository.changeRepIdForPublicUser(newRepId);
     },
     async getPublicUserRepId() {
       return await repository.getPublicUserRepId();

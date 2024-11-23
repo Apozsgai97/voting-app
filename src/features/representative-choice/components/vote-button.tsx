@@ -1,4 +1,4 @@
-import { representativeFeature } from "../instance";
+import { changeRepId } from "../action";
 
 type Props = {
   status: "voted" | "unvoted";
@@ -15,7 +15,7 @@ export function VoteButton({
   async function handleVote() {
      if (status === "voted") return; 
     setStatus("voted");
-    await representativeFeature.service.changeRepIdForPublicUser(repId);
+    await changeRepId(repId);
   }
 
   return (

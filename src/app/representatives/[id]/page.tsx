@@ -11,6 +11,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
 
     const publicUserRepId =
       await representativeFeature.service.getPublicUserRepId();
+
+    console.log(publicUserRepId)
  
 
   return (

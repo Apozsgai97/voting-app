@@ -12,3 +12,8 @@ export async function addRepresentative(formData: FormData) {
  revalidatePath("/representatives");
  
 }
+
+export async function changeRepId(id:string) {
+  await representativeFeature.service.changeRepIdForPublicUser(id);
+  console.log(id);
+}
