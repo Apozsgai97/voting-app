@@ -10,10 +10,15 @@ export function Buttons({
   repId: string;
   publicUserRepId: string;
 }) {
- 
-  const [status, setStatus] = useState<"voted" | "unvoted">(
-    publicUserRepId === repId ? "voted" : "unvoted"
-  );
+  let startStatus = "";
+
+  if (publicUserRepId) {
+    startStatus = "voted";
+  } else {
+    startStatus = "unvoted";
+  }
+
+  const [status, setStatus] = useState<string>(startStatus);
 
   return (
     <div className="flex w-48 items-center justify-between">

@@ -1,8 +1,8 @@
 import { changeRepId } from "../action";
 
 type Props = {
-  status: "voted" | "unvoted";
-  setStatus: React.Dispatch<React.SetStateAction<"voted" | "unvoted">>;
+  status:string;
+  setStatus: React.Dispatch<React.SetStateAction<string>>;
   repId: string;
 };
 
@@ -13,7 +13,6 @@ export function VoteButton({
 
 }: Props) {
   async function handleVote() {
-     if (status === "voted") return; 
     setStatus("voted");
     await changeRepId(repId);
   }
