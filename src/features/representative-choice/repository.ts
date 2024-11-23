@@ -1,4 +1,4 @@
-type Representative = {
+export type Representative = {
   name: string;
   email: string;
 };
@@ -12,8 +12,11 @@ const representatives: Representative[] = [
 
 export function createRepository(){
  return{
-  getAllRepresentatives: async() => {
+  async getAllRepresentatives(){
    return await representatives;
+  },
+  async addRepresentative(representative: Representative){
+   representatives.push(representative)
   }
  }
 }

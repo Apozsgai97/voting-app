@@ -1,8 +1,10 @@
+import { addRepresentative } from "../action";
+
 export function RepresentativeForm() {
   return (
     <form
-      action="submit"
-      className="flex flex-col  justify-center items-center p-8 w-full border-2 bg-slate-50"
+      action={addRepresentative}
+      className="flex flex-col  justify-center items-center p-8 w-full shadow-lg"
     >
       <label htmlFor="name" className="label-text">
         Name
@@ -12,7 +14,7 @@ export function RepresentativeForm() {
         name="name"
         id="name"
         placeholder="Adrienn Pozsgai"
-        className="input input-bordered input-primary w-full max-w-xs mb-6 bg-white"
+        className="input input-bordered input-primary w-full max-w-xs mb-6 bg-slate-50"
       />
       <label htmlFor="email" className=" label-text">
         Email
@@ -22,7 +24,7 @@ export function RepresentativeForm() {
         id="email"
         name="email"
         placeholder="adrienn.pozsgai@gmail.com"
-        className="input input-bordered input-primary w-full max-w-xs mb-6 bg-white"
+        className="input input-bordered input-primary w-full max-w-xs mb-6 bg-slate-50"
       />
       <div>
         <button
