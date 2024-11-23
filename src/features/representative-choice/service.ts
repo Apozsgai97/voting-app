@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { Repository, Representative } from "./repository";
+import { v4 as uuidv4 } from "uuid";
 
 const NameSchema = z
   .string({
@@ -20,7 +21,8 @@ export function createService(repository: Repository) {
     },
     async addRepresentative(name: string, email: string) {
       const validatedName = NameSchema.safeParse(name);
-      const validatedEmail = EmailSchema.safeParse(email)
+      const validatedEmail = EmailSchema.safeParse(email);
+      const id = uuidv4();
 
       if (!validatedName.success || !validatedEmail.success) {
         return {
@@ -29,9 +31,11 @@ export function createService(repository: Repository) {
       }
 
       const representative: Representative = {
+        id: id,
         name: validatedName.data,
         email: validatedEmail.data,
       };
+
       repository.addRepresentative(representative);
     },
   };
