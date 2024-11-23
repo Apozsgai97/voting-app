@@ -34,6 +34,7 @@ export function createService(repository: Repository) {
         id: id,
         name: validatedName.data,
         email: validatedEmail.data,
+        publicVotes:0,
       };
 
       repository.addRepresentative(representative);
