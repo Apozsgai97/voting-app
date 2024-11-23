@@ -1,4 +1,5 @@
 import { ElectionForm } from "@/features/elections/components/election-form";
+import { Elections } from "@/features/elections/components/elections";
 
 export default function Page() {
   return (
@@ -10,7 +11,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold">Add new Election</h2>
         <ElectionForm />
       </section>
-      {/* <Elections /> */}
+      <Elections />
     </main>
   );
 }

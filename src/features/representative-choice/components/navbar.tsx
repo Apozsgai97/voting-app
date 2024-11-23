@@ -14,7 +14,7 @@ export function Navbar() {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="">Elections</Link>
+            <Link href="\elections\">Elections</Link>
           </li>
           <li>
             <Link href="\representatives\">Representatives</Link>
