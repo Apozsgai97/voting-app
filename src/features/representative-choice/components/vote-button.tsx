@@ -1,4 +1,4 @@
-import { changeRepId } from "../action";
+import { addToPublicVotes, changeRepId } from "../action";
 
 type Props = {
   status:string;
@@ -15,6 +15,7 @@ export function VoteButton({
   async function handleVote() {
     setStatus("voted");
     await changeRepId(repId);
+    await addToPublicVotes(repId);
   }
 
   return (

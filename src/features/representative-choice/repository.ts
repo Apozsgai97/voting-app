@@ -52,10 +52,16 @@ export function createRepository() {
       return await representative!;
     },
     async changeRepIdForPublicUser(newRepId: string) {
-      if (publicUser.repId !== newRepId) publicUser.repId = newRepId;
+      publicUser.repId = newRepId;
     },
     async getPublicUserRepId() {
       return publicUser.repId;
+    },
+    async changePublicVotes(id:string, newPublicVotes:number) {
+     const representative = representatives.find(
+       (representative) => id === representative.id
+     );
+     representative!.publicVotes = newPublicVotes;
     },
   };
 }

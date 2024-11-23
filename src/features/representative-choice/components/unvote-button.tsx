@@ -1,4 +1,4 @@
-import { changeRepId } from "../action";
+import { changeRepId, takeFromPublicVotes } from "../action";
 
 type Props = {
   status: string;
@@ -10,6 +10,7 @@ export function UnvotedButton({ status, setStatus, repId, publicUserRepId }: Pro
   async function handleUnvote() {
     setStatus("unvoted");
     await changeRepId("");
+    await takeFromPublicVotes(repId)
   }
 
   return (

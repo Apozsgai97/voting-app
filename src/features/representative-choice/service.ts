@@ -43,11 +43,20 @@ export function createService(repository: Repository) {
       return await repository.getRepresentativeById(id);
     },
     async changeRepIdForPublicUser(newRepId: string) {
-      console.log(newRepId)
       await repository.changeRepIdForPublicUser(newRepId);
     },
     async getPublicUserRepId() {
       return await repository.getPublicUserRepId();
     },
+    async addToPublicVotes(id:string){
+      const representative = await repository.getRepresentativeById(id);
+      const newPublicVotes = representative.publicVotes + 1;
+      await repository.changePublicVotes(id, newPublicVotes)
+    },
+    async takeFromPublicVotes(id:string){
+      const representative = await repository.getRepresentativeById(id);
+      const newPublicVotes = representative.publicVotes - 1;
+      await repository.changePublicVotes(id, newPublicVotes)
+    }
   };
 }

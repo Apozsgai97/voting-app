@@ -16,3 +16,11 @@ export async function addRepresentative(formData: FormData) {
 export async function changeRepId(id:string) {
   await representativeFeature.service.changeRepIdForPublicUser(id);
 }
+
+export async function addToPublicVotes(id: string) {
+  await representativeFeature.service.addToPublicVotes(id);
+}
+
+export async function takeFromPublicVotes(id: string) {
+  await representativeFeature.service.takeFromPublicVotes(id);
+}
