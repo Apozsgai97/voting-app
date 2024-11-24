@@ -1,6 +1,4 @@
-import { ClosedElection } from "@/features/elections/components/closed-election";
-import { OngoingElection } from "@/features/elections/components/ongoing-election";
-import { electionFeature } from "@/features/elections/instance";
+import { ClosedElection, OngoingElection, electionFeature } from "@/features";
 import { notFound } from "next/navigation";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {

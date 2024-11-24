@@ -1,6 +1,4 @@
-import { representativeFeature } from "@/features";
-import { getRepresentativeById} from "@/features/representative-choice/action";
-import { Buttons } from "@/features/representative-choice/components/buttons";
+import { Buttons, getRepresentativeById, representativeFeature} from "@/features";
 
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
