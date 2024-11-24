@@ -13,8 +13,16 @@ export function createElectionService(repository: Repository) {
       const election = {
         id: id,
         issue: issue,
-        choice_1: choice1,
-        choice_2: choice2,
+        choice_1: {
+          name: choice1,
+          votes: 0,
+          result: "pending",
+        },
+        choice_2: {
+          name: choice2,
+          votes: 0,
+          result: "pending",
+        },
         status: "ongoing",
         publish_date: date,
       };

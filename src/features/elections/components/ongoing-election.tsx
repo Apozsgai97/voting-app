@@ -16,7 +16,7 @@ export async function OngoingElection({election}:Props) {
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">First Choice</div>
-              <div className="stat-value">{election.choice_1}</div>
+              <div className="stat-value">{election.choice_1.name}</div>
               <div className="flex justify-center items-center pt-4">
                 <button
                   className=" btn
@@ -34,7 +34,7 @@ export async function OngoingElection({election}:Props) {
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">Second Choice</div>
-              <div className="stat-value">{election.choice_2}</div>
+              <div className="stat-value">{election.choice_2.name}</div>
               <div className="flex justify-center items-center pt-4">
                 <button
                   className=" btn

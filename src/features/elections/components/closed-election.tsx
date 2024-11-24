@@ -16,21 +16,21 @@ export async function ClosedElection({election}:Props) {
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">First Choice</div>
-              <div className="stat-value">{election.choice_1}</div>
+              <div className="stat-value">{election.choice_1.name}</div>
               <div className="stat-title">Votes</div>
-              <div className="stat-value">20</div>
+              <div className="stat-value">{election.choice_1.votes}</div>
               <div className="stat-title">Result</div>
-              <div className="stat-value">Win</div>
+              <div className="stat-value">{election.choice_1.result}</div>
             </div>
           </article>
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">Second Choice</div>
-              <div className="stat-value">{election.choice_2}</div>
+              <div className="stat-value">{election.choice_2.name}</div>
               <div className="stat-title">Votes</div>
-              <div className="stat-value">10</div>
+              <div className="stat-value">{election.choice_2.votes}</div>
               <div className="stat-title">Result</div>
-              <div className="stat-value">Lose</div>
+              <div className="stat-value">{election.choice_2.result}</div>
             </div>
           </article>
         </div>
