@@ -10,6 +10,7 @@ export type Representative = {
       choice_2_votes: number;
       current_public_votes: number;
       choice: string;
+      agreement_rate:number
     }[];
 };
 
@@ -26,6 +27,7 @@ const representatives: Representative[] = [
         choice_2_votes: 5,
         current_public_votes: 10,
         choice: "Yes",
+        agreement_rate: 50,
       },
       {
         electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
@@ -33,6 +35,7 @@ const representatives: Representative[] = [
         choice_2_votes: 7,
         current_public_votes: 12,
         choice: "No",
+        agreement_rate: 58,
       },
       {
         electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
@@ -40,6 +43,7 @@ const representatives: Representative[] = [
         choice_2_votes: 11,
         current_public_votes: 12,
         choice: "No",
+        agreement_rate: 92,
       },
       {
         electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
@@ -47,6 +51,7 @@ const representatives: Representative[] = [
         choice_2_votes: 2,
         current_public_votes: 11,
         choice: "Yes",
+        agreement_rate: 82,
       },
       {
         electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
@@ -54,6 +59,7 @@ const representatives: Representative[] = [
         choice_2_votes: 5,
         current_public_votes: 10,
         choice: "No",
+        agreement_rate: 50,
       },
       {
         electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
@@ -61,6 +67,7 @@ const representatives: Representative[] = [
         choice_2_votes: 7,
         current_public_votes: 10,
         choice: "No",
+        agreement_rate: 70,
       },
       {
         electionId: "dc4b1c79-2337-4f68-b6cf-35ea61f7a89d",
@@ -68,6 +75,7 @@ const representatives: Representative[] = [
         choice_2_votes: 8,
         current_public_votes: 8,
         choice: "No",
+        agreement_rate: 100,
       },
     ],
   },
@@ -83,6 +91,7 @@ const representatives: Representative[] = [
         choice_2_votes: 0,
         current_public_votes: 5,
         choice: "Yes",
+        agreement_rate: 100,
       },
       {
         electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
@@ -90,6 +99,7 @@ const representatives: Representative[] = [
         choice_2_votes: 4,
         current_public_votes: 5,
         choice: "No",
+        agreement_rate: 80,
       },
       {
         electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
@@ -97,6 +107,7 @@ const representatives: Representative[] = [
         choice_2_votes: 4,
         current_public_votes: 7,
         choice: "Yes",
+        agreement_rate: 57,
       },
       {
         electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
@@ -104,6 +115,7 @@ const representatives: Representative[] = [
         choice_2_votes: 1,
         current_public_votes: 7,
         choice: "Yes",
+        agreement_rate: 86,
       },
       {
         electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
@@ -111,6 +123,7 @@ const representatives: Representative[] = [
         choice_2_votes: 4,
         current_public_votes: 8,
         choice: "No",
+        agreement_rate: 50,
       },
       {
         electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
@@ -118,13 +131,15 @@ const representatives: Representative[] = [
         choice_2_votes: 5,
         current_public_votes: 7,
         choice: "No",
+        agreement_rate: 71,
       },
       {
         electionId: "dc4b1c79-2337-4f68-b6cf-35ea61f7a89d",
-        choice_1_votes: 3,
+        choice_1_votes: 0,
         choice_2_votes: 5,
         current_public_votes: 5,
         choice: "No",
+        agreement_rate: 100,
       },
     ],
   },
@@ -140,6 +155,7 @@ const representatives: Representative[] = [
         choice_2_votes: 13,
         current_public_votes: 23,
         choice: "No",
+        agreement_rate: 57,
       },
       {
         electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
@@ -147,6 +163,7 @@ const representatives: Representative[] = [
         choice_2_votes: 15,
         current_public_votes: 20,
         choice: "No",
+        agreement_rate: 75,
       },
       {
         electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
@@ -154,6 +171,7 @@ const representatives: Representative[] = [
         choice_2_votes: 12,
         current_public_votes: 21,
         choice: "Yes",
+        agreement_rate: 43,
       },
       {
         electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
@@ -161,6 +179,7 @@ const representatives: Representative[] = [
         choice_2_votes: 2,
         current_public_votes: 20,
         choice: "Yes",
+        agreement_rate: 90,
       },
       {
         electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
@@ -168,6 +187,7 @@ const representatives: Representative[] = [
         choice_2_votes: 16,
         current_public_votes: 18,
         choice: "No",
+        agreement_rate: 89,
       },
       {
         electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
@@ -175,6 +195,7 @@ const representatives: Representative[] = [
         choice_2_votes: 10,
         current_public_votes: 15,
         choice: "No",
+        agreement_rate: 67,
       },
     ],
   },
@@ -190,20 +211,23 @@ const representatives: Representative[] = [
         choice_2_votes: 2,
         current_public_votes: 8,
         choice: "Yes",
+        agreement_rate: 75,
       },
       {
         electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
-        choice_1_votes: 2,
+        choice_1_votes: 3,
         choice_2_votes: 3,
         current_public_votes: 6,
         choice: "Yes",
+        agreement_rate: 50,
       },
       {
         electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
-        choice_1_votes: 2,
-        choice_2_votes: 2,
+        choice_1_votes: 3,
+        choice_2_votes: 1,
         current_public_votes: 4,
         choice: "Yes",
+        agreement_rate: 75,
       },
     ],
   },
