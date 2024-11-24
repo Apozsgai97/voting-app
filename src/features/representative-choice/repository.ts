@@ -40,7 +40,7 @@ const publicUser = {
 export function createRepository() {
   return {
     async getAllRepresentatives() {
-      return await representatives;
+      return representatives;
     },
     async addRepresentative(representative: Representative) {
       representatives.push(representative);
@@ -49,7 +49,7 @@ export function createRepository() {
       const representative = representatives.find(
         (representative) => id === representative.id
       );
-      return await representative!;
+      return representative!;
     },
     async changeRepIdForPublicUser(newRepId: string) {
       publicUser.repId = newRepId;

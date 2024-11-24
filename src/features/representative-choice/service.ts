@@ -3,10 +3,7 @@ import { Repository, Representative } from "./repository";
 import { v4 as uuidv4 } from "uuid";
 
 const NameSchema = z
-  .string({
-    required_error: "Name is required",
-    invalid_type_error: "Name must be a string",
-  })
+  .string()
   .min(1, { message: "This field has to be filled." });
 
 const EmailSchema = z
@@ -29,6 +26,7 @@ export function createService(repository: Repository) {
           message: "Please provide a valid name and email.",
         };
       }
+      console.log(validatedName.data)
 
       const representative: Representative = {
         id: id,
@@ -40,7 +38,13 @@ export function createService(repository: Repository) {
       repository.addRepresentative(representative);
     },
     async getRepresentativeById(id: string) {
-      return await repository.getRepresentativeById(id);
+      const representatives = await repository.getAllRepresentatives()
+      console.log(representatives);
+      const representative = representatives.find(
+        (representative) => id === representative.id
+      );
+      return representative
+      //await repository.getRepresentativeById(id);
     },
     async changeRepIdForPublicUser(newRepId: string) {
       await repository.changeRepIdForPublicUser(newRepId);
