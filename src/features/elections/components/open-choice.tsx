@@ -2,7 +2,7 @@ export function OpenChoice({name}: {name:string}){
  return (
    <article className="stats shadow my-8">
      <div className="stat text-center">
-       <div className="stat-title">First Choice</div>
+       <div className="stat-title">Choice</div>
        <div className="stat-value">{name}</div>
        <div className="flex justify-center items-center pt-4">
          <button

@@ -143,6 +143,14 @@ export function createElectionRepository() {
       const election = elections.find((election) => id === election.id);
       return await election;
     },
+    async changeVoteResult(result1: string, result2: string, id: string) {
+      const election = elections.find(
+        (election) => id === election.id
+      );
+      election!.choice_1.result = result1;
+      election!.choice_2.result = result2;
+      election!.status = "closed"
+    },
   };
 }
 export type Repository = ReturnType<typeof createElectionRepository>;

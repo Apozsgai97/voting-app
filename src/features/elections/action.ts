@@ -12,3 +12,8 @@ export async function addElection(formData: FormData) {
 
   revalidatePath("/elections");
 }
+
+export async function closeAndCalculateVoteResult(id: string) {
+ await electionFeature.service.calculateVoteResult(id)
+  revalidatePath(`/elections/${id}`);
+}
