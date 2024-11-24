@@ -21,8 +21,8 @@ export async function ElectionForm() {
       </label>
       <input
         type="text"
-        id="choice-1"
-        name="choice-1"
+        id="choice1"
+        name="choice1"
         placeholder="cat"
         className="input input-bordered input-primary w-full max-w-xs mb-6 bg-slate-50"
       />
@@ -31,8 +31,8 @@ export async function ElectionForm() {
       </label>
       <input
         type="text"
-        id="choice-2"
-        name="choice-2"
+        id="choice2"
+        name="choice2"
         placeholder="dog"
         className="input input-bordered input-primary w-full max-w-xs mb-6 bg-slate-50"
       />

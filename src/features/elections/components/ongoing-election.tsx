@@ -11,7 +11,7 @@ export async function OngoingElection({election}:Props) {
         Ongoing Election
       </h1>
       <section>
-        <h2 className="text-center text-4xl">{election.issue}</h2>
+        <h2 className="text-center text-4xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
           <article className="stats shadow my-8">
             <div className="stat text-center">
