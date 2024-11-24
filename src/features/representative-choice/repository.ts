@@ -3,15 +3,14 @@ export type Representative = {
   name: string;
   email: string;
   publicVotes: number;
-  elections:
-    {
-      electionId: string
-      choice_1_votes: number;
-      choice_2_votes: number;
-      current_public_votes: number;
-      choice: string;
-      agreement_rate:number
-    }[];
+  elections: {
+    electionId: string;
+    choice_1_votes: number;
+    choice_2_votes: number;
+    current_public_votes: number;
+    choice: string;
+    agreement_rate: number;
+  }[];
 };
 
 const representatives: Representative[] = [
@@ -263,6 +262,25 @@ export function createRepository() {
         (representative) => id === representative.id
       );
       representative!.publicVotes = newPublicVotes;
+    },
+    async changeChoiceVotes(
+      id: string,
+      electionId: string,
+      new_choice_1_votes: number,
+      new_choice_2_votes: number,
+    ) {
+      const representative = representatives.find(
+        (representative) => id === representative.id
+      );
+      const electionIndex = representative!.elections.findIndex(
+        (election) => election.electionId === electionId
+      );
+      
+
+      representative!.elections[electionIndex].choice_1_votes =
+        new_choice_1_votes;
+      representative!.elections[electionIndex].choice_2_votes =
+        new_choice_2_votes;
     },
   };
 }

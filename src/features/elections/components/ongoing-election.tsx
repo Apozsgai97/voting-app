@@ -2,7 +2,8 @@
 import { Representative } from "@/features/representative-choice/repository";
 import { closeAndCalculateVoteResult } from "../action";
 import { Election } from "../repository";
-import { OpenChoice } from "./open-choice";
+import { OpenChoiceOne } from "./open-choice-one";
+import { OpenChoiceTwo } from "./open-choice-two";
 
 type Props = {
   election: Election;
@@ -22,8 +23,18 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
       <section>
         <h2 className="text-center text-2xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
-          <OpenChoice name={election.choice_1.name} />
-          <OpenChoice name={election.choice_2.name} />
+          <OpenChoiceOne
+            name={election.choice_1.name}
+            choiceNumber={1}
+            representativeId={currentRepresentative.id}
+            electionId={election.id}
+          />
+          <OpenChoiceTwo
+            name={election.choice_2.name}
+            choiceNumber={2}
+            representativeId={currentRepresentative.id}
+            electionId={election.id}
+          />
         </div>
       </section>
       <section className="flex flex-col justify-center items-center">
@@ -52,7 +63,7 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
               {
                 currentRepresentative.elections.find(
                   (e) => e.electionId === election.id
-                )?.choice_1_votes
+                )?.choice_2_votes
               }
             </div>
           </div>

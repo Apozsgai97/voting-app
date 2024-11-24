@@ -20,7 +20,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   return (
     <main className="flex flex-col justify-center items-center p-0">
       {election.status === "ongoing" ? (
-        <OngoingElection election={election} currentRepresentative={currentRepresentative}/>
+        <OngoingElection election={election} currentRepresentative={currentRepresentative!}/>
       ) : (
         <ClosedElection election={election} representatives={representatives} />
       )}

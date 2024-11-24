@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { Repository, Representative } from "./repository";
 import { v4 as uuidv4 } from "uuid";
-import { getRepresentativeById } from "./action";
+import { addToPublicPreference, getRepresentativeById } from "./action";
 
 const NameSchema = z
   .string()
@@ -27,7 +27,6 @@ export function createService(repository: Repository) {
           message: "Please provide a valid name and email.",
         };
       }
-      console.log(validatedName.data);
 
       const representative: Representative = {
         id: id,
@@ -41,7 +40,6 @@ export function createService(repository: Repository) {
     },
     async getRepresentativeById(id: string) {
       const representatives = await repository.getAllRepresentatives();
-      console.log(representatives);
       const representative = representatives.find(
         (representative) => id === representative.id
       );
@@ -72,5 +70,19 @@ export function createService(repository: Repository) {
       );
       return representativesThatVoted;
     },
+    async addToPublicPreference(id:string, electionId:string, choiceNumber:number){
+      const representative = await repository.getRepresentativeById(id);
+      const election = representative.elections.find(
+        (election) => election.electionId === electionId
+      );
+      let new_choice_1_votes = election!.choice_1_votes
+      let new_choice_2_votes = election!.choice_2_votes;
+      if (choiceNumber === 1) new_choice_1_votes = new_choice_1_votes + 1;
+      if (choiceNumber === 2) new_choice_2_votes = new_choice_2_votes + 1;
+
+      await repository.changeChoiceVotes(id, electionId, new_choice_1_votes, new_choice_2_votes)
+
+
+    }
   };
 }
