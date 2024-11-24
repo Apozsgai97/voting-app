@@ -1,10 +1,11 @@
 import { Election } from "../repository";
+import { OpenChoice } from "./open-choice";
 
 type Props = {
   election: Election;
 };
 
-export async function OngoingElection({election}:Props) {
+export async function OngoingElection({ election }: Props) {
   return (
     <>
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
@@ -13,42 +14,8 @@ export async function OngoingElection({election}:Props) {
       <section>
         <h2 className="text-center text-4xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
-          <article className="stats shadow my-8">
-            <div className="stat text-center">
-              <div className="stat-title">First Choice</div>
-              <div className="stat-value">{election.choice_1.name}</div>
-              <div className="flex justify-center items-center pt-4">
-                <button
-                  className=" btn
-           bg-emerald-900
-           text-gray-100
-           hover:bg-emerald-800
-           rounded-lg
-           w-20"
-                >
-                  Vote
-                </button>
-              </div>
-            </div>
-          </article>
-          <article className="stats shadow my-8">
-            <div className="stat text-center">
-              <div className="stat-title">Second Choice</div>
-              <div className="stat-value">{election.choice_2.name}</div>
-              <div className="flex justify-center items-center pt-4">
-                <button
-                  className=" btn
-           bg-emerald-900
-           text-gray-100
-           hover:bg-emerald-800
-           rounded-lg
-           w-20"
-                >
-                  Vote
-                </button>
-              </div>
-            </div>
-          </article>
+          <OpenChoice name={election.choice_1.name} />
+          <OpenChoice name={election.choice_2.name} />
         </div>
       </section>
       <button
