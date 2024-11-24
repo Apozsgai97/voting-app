@@ -1,4 +1,4 @@
-import { ClosedElection, OngoingElection, electionFeature } from "@/features";
+import { ClosedElection, OngoingElection, electionFeature, representativeFeature } from "@/features";
 import { notFound } from "next/navigation";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
@@ -6,6 +6,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const id = params.id;
   
   const election = await electionFeature.service.getElectionById(id)
+  const representatives = await representativeFeature.service.getAllRepresentatives()
 
    if (!election) {
      notFound();
@@ -17,7 +18,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
       {election.status === "ongoing" ? (
         <OngoingElection election={election} />
       ) : (
-        <ClosedElection election={election} />
+        <ClosedElection election={election} representatives={representatives} />
       )}
     </main>
   );
