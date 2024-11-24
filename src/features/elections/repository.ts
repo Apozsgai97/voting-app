@@ -21,12 +21,12 @@ const elections = [
       "Should the country adopt renewable energy as the primary power source?",
     choice_1: {
       name: "Yes",
-      votes: 10,
+      votes: 6,
       result: "Lose",
     },
     choice_2: {
       name: "No",
-      votes: 50,
+      votes: 37,
       result: "Win",
     },
     status: "closed",
@@ -37,12 +37,12 @@ const elections = [
     issue: "Should we ban single-use plastics?",
     choice_1: {
       name: "Yes",
-      votes: 75,
+      votes: 32,
       result: "Win",
     },
     choice_2: {
       name: "No",
-      votes: 25,
+      votes: 12,
       result: "Lose",
     },
     status: "closed",
@@ -53,12 +53,12 @@ const elections = [
     issue: "Should we extend paid family leave to 2 years?",
     choice_1: {
       name: "Yes",
-      votes: 20,
+      votes: 38,
       result: "Win",
     },
     choice_2: {
       name: "No",
-      votes: 10,
+      votes: 0,
       result: "Lose",
     },
     status: "closed",
@@ -69,12 +69,12 @@ const elections = [
     issue: "Should we increase the legal smoking age to 21?",
     choice_1: {
       name: "Yes",
-      votes: 30,
+      votes: 0,
       result: "Lose",
     },
     choice_2: {
       name: "No",
-      votes: 50,
+      votes: 36,
       result: "Win",
     },
     status: "closed",
@@ -85,13 +85,13 @@ const elections = [
     issue: "Should we provide free public transportation in all major cities?",
     choice_1: {
       name: "Yes",
-      votes: 20,
-      result: "Win",
+      votes: 0,
+      result: "Lose",
     },
     choice_2: {
       name: "No",
-      votes: 10,
-      result: "Lose",
+      votes: 32,
+      result: "Win",
     },
     status: "closed",
     publish_date: "2021-08-19T12:00:00.000Z",
@@ -101,12 +101,12 @@ const elections = [
     issue: "Should we implement mandatory voting?",
     choice_1: {
       name: "Yes",
-      votes: 12,
+      votes: 0,
       result: "Lose",
     },
     choice_2: {
       name: "No",
-      votes: 80,
+      votes: 13,
       result: "Win",
     },
     status: "closed",
