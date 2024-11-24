@@ -33,6 +33,7 @@ export function createService(repository: Repository) {
         name: validatedName.data,
         email: validatedEmail.data,
         publicVotes:0,
+        elections:[]
       };
 
       repository.addRepresentative(representative);

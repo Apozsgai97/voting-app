@@ -3,6 +3,14 @@ export type Representative = {
   name: string;
   email: string;
   publicVotes: number;
+  elections:
+    {
+      electionId: string
+      choice_1_votes: number;
+      choice_2_votes: number;
+      current_public_votes: number;
+      choice: string;
+    }[];
 };
 
 const representatives: Representative[] = [
@@ -11,24 +19,193 @@ const representatives: Representative[] = [
     name: "Alex Johnson",
     email: "alex.johnson@example.com",
     publicVotes: 10,
+    elections: [
+      {
+        electionId: "88b9c1b8-abe6-4b93-8197-bf25bf84364f",
+        choice_1_votes: 5,
+        choice_2_votes: 5,
+        current_public_votes: 10,
+        choice: "Yes",
+      },
+      {
+        electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
+        choice_1_votes: 5,
+        choice_2_votes: 7,
+        current_public_votes: 12,
+        choice: "No",
+      },
+      {
+        electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
+        choice_1_votes: 1,
+        choice_2_votes: 11,
+        current_public_votes: 12,
+        choice: "No",
+      },
+      {
+        electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
+        choice_1_votes: 9,
+        choice_2_votes: 2,
+        current_public_votes: 11,
+        choice: "Yes",
+      },
+      {
+        electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
+        choice_1_votes: 5,
+        choice_2_votes: 5,
+        current_public_votes: 10,
+        choice: "No",
+      },
+      {
+        electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
+        choice_1_votes: 3,
+        choice_2_votes: 7,
+        current_public_votes: 10,
+        choice: "No",
+      },
+      {
+        electionId: "dc4b1c79-2337-4f68-b6cf-35ea61f7a89d",
+        choice_1_votes: 0,
+        choice_2_votes: 8,
+        current_public_votes: 8,
+        choice: "No",
+      },
+    ],
   },
   {
     id: "660e8400-e29b-41d4-a716-446655440111",
     name: "Taylor Smith",
     email: "taylor.smith@example.com",
     publicVotes: 5,
+    elections: [
+      {
+        electionId: "88b9c1b8-abe6-4b93-8197-bf25bf84364f",
+        choice_1_votes: 5,
+        choice_2_votes: 0,
+        current_public_votes: 5,
+        choice: "Yes",
+      },
+      {
+        electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
+        choice_1_votes: 1,
+        choice_2_votes: 4,
+        current_public_votes: 5,
+        choice: "No",
+      },
+      {
+        electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
+        choice_1_votes: 3,
+        choice_2_votes: 4,
+        current_public_votes: 7,
+        choice: "Yes",
+      },
+      {
+        electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
+        choice_1_votes: 6,
+        choice_2_votes: 1,
+        current_public_votes: 7,
+        choice: "Yes",
+      },
+      {
+        electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
+        choice_1_votes: 4,
+        choice_2_votes: 4,
+        current_public_votes: 8,
+        choice: "No",
+      },
+      {
+        electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
+        choice_1_votes: 2,
+        choice_2_votes: 5,
+        current_public_votes: 7,
+        choice: "No",
+      },
+      {
+        electionId: "dc4b1c79-2337-4f68-b6cf-35ea61f7a89d",
+        choice_1_votes: 3,
+        choice_2_votes: 5,
+        current_public_votes: 5,
+        choice: "No",
+      },
+    ],
   },
   {
     id: "770e8400-e29b-41d4-a716-446655440222",
     name: "Jordan Lee",
     email: "jordan.lee@example.com",
     publicVotes: 23,
+    elections: [
+      {
+        electionId: "88b9c1b8-abe6-4b93-8197-bf25bf84364f",
+        choice_1_votes: 10,
+        choice_2_votes: 13,
+        current_public_votes: 23,
+        choice: "No",
+      },
+      {
+        electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
+        choice_1_votes: 5,
+        choice_2_votes: 15,
+        current_public_votes: 20,
+        choice: "No",
+      },
+      {
+        electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
+        choice_1_votes: 9,
+        choice_2_votes: 12,
+        current_public_votes: 21,
+        choice: "Yes",
+      },
+      {
+        electionId: "a9985f84-bb9e-44f9-bd08-d87d70567e10",
+        choice_1_votes: 18,
+        choice_2_votes: 2,
+        current_public_votes: 20,
+        choice: "Yes",
+      },
+      {
+        electionId: "e5c5fa2f-071b-46f8-baf8-3306f585c6fa",
+        choice_1_votes: 2,
+        choice_2_votes: 16,
+        current_public_votes: 18,
+        choice: "No",
+      },
+      {
+        electionId: "df14c7c8-6a8b-4bb2-bf9a-6acfd13a2929",
+        choice_1_votes: 5,
+        choice_2_votes: 10,
+        current_public_votes: 15,
+        choice: "No",
+      },
+    ],
   },
   {
     id: "880e8400-e29b-41d4-a716-446655440333",
     name: "Morgan Brown",
     email: "morgan.brown@example.com",
     publicVotes: 8,
+    elections: [
+      {
+        electionId: "88b9c1b8-abe6-4b93-8197-bf25bf84364f",
+        choice_1_votes: 6,
+        choice_2_votes: 2,
+        current_public_votes: 8,
+        choice: "Yes",
+      },
+      {
+        electionId: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
+        choice_1_votes: 2,
+        choice_2_votes: 3,
+        current_public_votes: 6,
+        choice: "Yes",
+      },
+      {
+        electionId: "ad931316-554e-4075-89e9-e0ce6b40f6eb",
+        choice_1_votes: 2,
+        choice_2_votes: 2,
+        current_public_votes: 4,
+        choice: "Yes",
+      },
+    ],
   },
 ];
 
@@ -57,11 +234,11 @@ export function createRepository() {
     async getPublicUserRepId() {
       return publicUser.repId;
     },
-    async changePublicVotes(id:string, newPublicVotes:number) {
-     const representative = representatives.find(
-       (representative) => id === representative.id
-     );
-     representative!.publicVotes = newPublicVotes;
+    async changePublicVotes(id: string, newPublicVotes: number) {
+      const representative = representatives.find(
+        (representative) => id === representative.id
+      );
+      representative!.publicVotes = newPublicVotes;
     },
   };
 }
