@@ -9,7 +9,7 @@ export function createElectionService(repository: Repository) {
     },
     async addElection(issue: string, choice1: string, choice2: string) {
       const id = uuidv4();
-      const date = new Date().toISOString()
+      const date = new Date().toISOString();
 
       const election = {
         id: id,
@@ -30,15 +30,13 @@ export function createElectionService(repository: Repository) {
 
       repository.addElection(election);
     },
-    async getElectionById(id:string){
+    async getElectionById(id: string) {
       return repository.getElectionById(id);
     },
-    async calculateVoteResult(id:string){
-      const election= await repository.getElectionById(id);
-      const {result1, result2} = calculateResults(election!)
-      repository.changeVoteResult(result1, result2, id)
-
-    }
+    async calculateVoteResult(id: string) {
+      const election = await repository.getElectionById(id);
+      const { result1, result2 } = calculateResults(election!);
+      repository.changeVoteResult(result1, result2, id);
+    },
   };
 }
-

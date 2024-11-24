@@ -6,11 +6,16 @@ type Props = {
   repId: string;
   publicUserRepId: string;
 };
-export function UnvotedButton({ status, setStatus, repId, publicUserRepId }: Props) {
+export function UnvotedButton({
+  status,
+  setStatus,
+  repId,
+  publicUserRepId,
+}: Props) {
   async function handleUnvote() {
     setStatus("unvoted");
     await changeRepId("");
-    await takeFromPublicVotes(repId)
+    await takeFromPublicVotes(repId);
   }
 
   return (

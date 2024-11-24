@@ -73,4 +73,3 @@ describe("calculate result", () => {
     deepEqual(result2, "Tie");
   });
 });
-

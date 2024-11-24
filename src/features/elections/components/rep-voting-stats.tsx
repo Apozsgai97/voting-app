@@ -7,8 +7,6 @@ type Props = {
 };
 
 export function RepVotingStats({ election, representatives }: Props) {
-
-
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Representatives Statistics</h2>
@@ -48,7 +46,8 @@ export function RepVotingStats({ election, representatives }: Props) {
                     representative.elections.find(
                       (e) => e.electionId === election.id
                     )?.agreement_rate
-                  }%
+                  }
+                  %
                 </td>
               </tr>
             ))}

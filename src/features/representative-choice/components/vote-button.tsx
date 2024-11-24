@@ -1,17 +1,12 @@
 import { addToPublicVotes, changeRepId } from "../action";
 
 type Props = {
-  status:string;
+  status: string;
   setStatus: React.Dispatch<React.SetStateAction<string>>;
   repId: string;
 };
 
-export function VoteButton({
-  status,
-  setStatus,
-  repId,
-
-}: Props) {
+export function VoteButton({ status, setStatus, repId }: Props) {
   async function handleVote() {
     setStatus("voted");
     await changeRepId(repId);

@@ -1,8 +1,7 @@
 import { addRepresentative } from "../action";
 
 export async function RepresentativeForm() {
- 
- return (
+  return (
     <form
       action={addRepresentative}
       className="flex flex-col  justify-center items-center p-8 w-full shadow-lg"

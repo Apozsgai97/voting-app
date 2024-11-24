@@ -15,7 +15,6 @@ export function OpenChoiceTwo({
   async function addPreferenceTwo() {
     await addToPublicPreference(representativeId, electionId, choiceNumber);
   }
-  console.log(choiceNumber);
 
   return (
     <article className="stats shadow my-8">

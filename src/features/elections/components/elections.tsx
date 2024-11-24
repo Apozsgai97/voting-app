@@ -2,8 +2,7 @@ import Link from "next/link";
 import { electionFeature } from "../instance";
 
 export async function Elections() {
-  const elections =
-    await electionFeature.service.getAllElections();
+  const elections = await electionFeature.service.getAllElections();
 
   return (
     <section className="flex flex-col justify-center mt-6 w-full lg:w-3/6">

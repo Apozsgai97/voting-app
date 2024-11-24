@@ -267,7 +267,7 @@ export function createRepository() {
       id: string,
       electionId: string,
       new_choice_1_votes: number,
-      new_choice_2_votes: number,
+      new_choice_2_votes: number
     ) {
       const representative = representatives.find(
         (representative) => id === representative.id
@@ -275,7 +275,6 @@ export function createRepository() {
       const electionIndex = representative!.elections.findIndex(
         (election) => election.electionId === electionId
       );
-      
 
       representative!.elections[electionIndex].choice_1_votes =
         new_choice_1_votes;

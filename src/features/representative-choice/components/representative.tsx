@@ -11,10 +11,14 @@ export function Representative({ representatives, publicUserRepId }: Props) {
     <>
       <tbody>
         {representatives.map((representative, index) => (
-          <tr key={representative.id} className={
+          <tr
+            key={representative.id}
+            className={
               publicUserRepId === representative.id
-                ? "bg-green-100 py-4" 
-                : "py-4"}>
+                ? "bg-green-100 py-4"
+                : "py-4"
+            }
+          >
             <th>{index + 1}</th>
             <td>{representative.name}</td>
             <td>

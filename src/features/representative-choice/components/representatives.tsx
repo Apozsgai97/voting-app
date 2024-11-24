@@ -5,8 +5,8 @@ export async function Representatives() {
   const representatives =
     await representativeFeature.service.getAllRepresentatives();
 
- const publicUserRepId =
-      await representativeFeature.service.getPublicUserRepId();
+  const publicUserRepId =
+    await representativeFeature.service.getPublicUserRepId();
 
   return (
     <section className="flex flex-col justify-center mt-6 w-full lg:w-3/6">
@@ -18,7 +18,10 @@ export async function Representatives() {
               <th>Name</th>
             </tr>
           </thead>
-          <Representative representatives={representatives} publicUserRepId={publicUserRepId}/>
+          <Representative
+            representatives={representatives}
+            publicUserRepId={publicUserRepId}
+          />
         </table>
       </div>
     </section>

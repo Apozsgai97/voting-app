@@ -23,7 +23,12 @@ export function Buttons({
   return (
     <div className="flex w-48 items-center justify-between">
       <VoteButton status={status} setStatus={setStatus} repId={repId} />
-      <UnvotedButton status={status} setStatus={setStatus} repId={repId} publicUserRepId={publicUserRepId}/>
+      <UnvotedButton
+        status={status}
+        setStatus={setStatus}
+        repId={repId}
+        publicUserRepId={publicUserRepId}
+      />
     </div>
   );
 }

@@ -31,7 +31,15 @@ export async function getRepresentativeById(id: string) {
   return await representativeFeature.service.getRepresentativeById(id);
 }
 
-export async function addToPublicPreference(id: string, electionId:string, choiceNumber: number) {
-  await representativeFeature.service.addToPublicPreference(id, electionId, choiceNumber )
+export async function addToPublicPreference(
+  id: string,
+  electionId: string,
+  choiceNumber: number
+) {
+  await representativeFeature.service.addToPublicPreference(
+    id,
+    electionId,
+    choiceNumber
+  );
   revalidatePath(`/elections/${id}`);
 }

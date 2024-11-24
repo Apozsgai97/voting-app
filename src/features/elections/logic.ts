@@ -13,5 +13,5 @@ export function calculateResults(election: Election) {
     result1 = "Tie";
     result2 = "Tie";
   }
-  return { result1, result2};
+  return { result1, result2 };
 }
