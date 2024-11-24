@@ -1,13 +1,15 @@
 "use client";
+import { Representative } from "@/features/representative-choice/repository";
 import { closeAndCalculateVoteResult } from "../action";
 import { Election } from "../repository";
 import { OpenChoice } from "./open-choice";
 
 type Props = {
   election: Election;
+  currentRepresentative: Representative;
 };
 
-export function OngoingElection({ election }: Props) {
+export function OngoingElection({ election, currentRepresentative }: Props) {
   async function handleClick() {
     await closeAndCalculateVoteResult(election.id);
   }
@@ -25,19 +27,34 @@ export function OngoingElection({ election }: Props) {
         </div>
       </section>
       <section className="flex flex-col justify-center items-center">
-        <h3 className="text-center text-xl font-bold pb-4">Your public voters preferences</h3>
+        <h3 className="text-center text-xl font-bold pb-4">
+          Your public voters preferences
+        </h3>
         <div className="stats shadow">
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice_1.name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value">0</div>
+            <div className="stat-value">
+              {
+                currentRepresentative.elections.find(
+                  (e) => e.electionId === election.id
+                )?.choice_1_votes
+              }
+            </div>
           </div>
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice_2.name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value">0</div>
+            <div className="stat-value">
+              {" "}
+              {
+                currentRepresentative.elections.find(
+                  (e) => e.electionId === election.id
+                )?.choice_1_votes
+              }
+            </div>
           </div>
         </div>
       </section>
