@@ -7,9 +7,7 @@ type Props = {
 };
 
 export function RepVotingStats({ election, representatives }: Props) {
-  const representativesThatVoted = representatives.filter((representative) =>
-    representative.elections.some((e) => e.electionId === election.id)
-  );
+
 
   return (
     <section>
@@ -26,7 +24,7 @@ export function RepVotingStats({ election, representatives }: Props) {
             </tr>
           </thead>
           <tbody>
-            {representativesThatVoted.map((representative, index) => (
+            {representatives.map((representative, index) => (
               <tr key={representative.id}>
                 <th>{index + 1}</th>
                 <td>{representative.name}</td>

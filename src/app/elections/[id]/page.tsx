@@ -6,7 +6,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const id = params.id;
   
   const election = await electionFeature.service.getElectionById(id)
-  const representatives = await representativeFeature.service.getAllRepresentatives()
+  const representatives = await representativeFeature.service.getRepresentativesThatVoted(id)
 
    if (!election) {
      notFound();
