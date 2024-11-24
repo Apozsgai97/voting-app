@@ -1,16 +1,22 @@
-export async function ClosedElection() {
+import { Election } from "../repository";
+
+type Props = {
+ election: Election
+}
+
+export async function ClosedElection({election}:Props) {
   return (
     <>
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
         Closed Election
       </h1>
       <section>
-        <h2 className="text-center text-4xl">Issue</h2>
-        <div className="flex items-center justify-between gap-12">
+        <h2 className="text-center text-4xl">{election.issue}</h2>
+        <div className="flex items-center justify-center gap-12">
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">First Choice</div>
-              <div className="stat-value">choice</div>
+              <div className="stat-value">{election.choice_1}</div>
               <div className="stat-title">Votes</div>
               <div className="stat-value">20</div>
               <div className="stat-title">Result</div>
@@ -19,8 +25,8 @@ export async function ClosedElection() {
           </article>
           <article className="stats shadow my-8">
             <div className="stat text-center">
-              <div className="stat-title">First Choice</div>
-              <div className="stat-value">choice</div>
+              <div className="stat-title">Second Choice</div>
+              <div className="stat-value">{election.choice_2}</div>
               <div className="stat-title">Votes</div>
               <div className="stat-value">10</div>
               <div className="stat-title">Result</div>

@@ -21,5 +21,8 @@ export function createElectionService(repository: Repository) {
 
       repository.addElection(election);
     },
+    async getElectionById(id:string){
+      return repository.getElectionById(id);
+    }
   };
 }

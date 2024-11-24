@@ -1,16 +1,22 @@
-export async function OngoingElection() {
+import { Election } from "../repository";
+
+type Props = {
+  election: Election;
+};
+
+export async function OngoingElection({election}:Props) {
   return (
     <>
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
         Ongoing Election
       </h1>
       <section>
-        <h2 className="text-center text-4xl">Issue</h2>
-        <div className="flex items-center justify-between gap-12">
+        <h2 className="text-center text-4xl">{election.issue}</h2>
+        <div className="flex items-center justify-center gap-12">
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">First Choice</div>
-              <div className="stat-value">choice</div>
+              <div className="stat-value">{election.choice_1}</div>
               <div className="flex justify-center items-center pt-4">
                 <button
                   className=" btn
@@ -28,7 +34,7 @@ export async function OngoingElection() {
           <article className="stats shadow my-8">
             <div className="stat text-center">
               <div className="stat-title">Second Choice</div>
-              <div className="stat-value">choice</div>
+              <div className="stat-value">{election.choice_2}</div>
               <div className="flex justify-center items-center pt-4">
                 <button
                   className=" btn

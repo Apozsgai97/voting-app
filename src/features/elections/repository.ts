@@ -59,7 +59,7 @@ const elections = [
   },
 ];
 
-type Election = {
+export type Election = {
     id: string;
     issue: string;
     choice_1: string;
@@ -76,6 +76,12 @@ export function createElectionRepository() {
     async addElection(election: Election) {
      elections.unshift(election);
     },
+    async getElectionById(id:string){
+       const election = elections.find(
+         (election) => id === election.id
+       );
+       return await election;
+    }
   };
 }
 export type Repository = ReturnType<typeof createElectionRepository>;
