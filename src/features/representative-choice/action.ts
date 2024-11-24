@@ -30,7 +30,3 @@ export async function takeFromPublicVotes(id: string) {
 export async function getRepresentativeById(id: string) {
   return await representativeFeature.service.getRepresentativeById(id);
 }
-
-export async function revalidateIdPath(id: string) {
-  revalidateIdPath(`/representatives/${id}`);
-}

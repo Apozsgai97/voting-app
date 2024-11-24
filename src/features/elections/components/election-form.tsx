@@ -1,7 +1,9 @@
+import { addElection } from "../action";
+
 export async function ElectionForm() {
   return (
     <form
-      action={"h"}
+      action={addElection}
       className="flex flex-col  justify-center items-center p-8 w-full shadow-lg"
     >
       <label htmlFor="issue" className="label-text">
