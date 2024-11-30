@@ -1,5 +1,6 @@
 import { db } from "@/db/index";
 import { electionsTable } from "@/db/schema";
+import { desc, eq } from "drizzle-orm";
 
 const elections = [
   {
@@ -120,16 +121,23 @@ const elections = [
 export type Election = {
   id: string;
   issue: string;
-  choice_1: {
-    name: string;
-    votes: number;
-    result: string;
-  };
-  choice_2: {
-    name: string;
-    votes: number;
-    result: string;
-  };
+  choice1_name: string;
+  choice1_votes: number | null ;
+  choice1_result: string;
+  choice2_name: string;
+  choice2_votes: number | null;
+  choice2_result: string;
+  status: string;
+  publish_date: string;
+};
+export type ElectionData = {
+  issue: string;
+  choice1_name: string;
+  choice1_votes: number;
+  choice1_result: string;
+  choice2_name: string;
+  choice2_votes: number;
+  choice2_result: string;
   status: string;
   publish_date: string;
 };
@@ -137,14 +145,20 @@ export type Election = {
 export function createElectionRepository() {
   return {
     async getAllElections() {
-      return await db.select().from(electionsTable);
+      return await db
+        .select()
+        .from(electionsTable)
+        .orderBy(desc(electionsTable.publish_date));
     },
-    async addElection(election: Election) {
-      elections.unshift(election);
+    async addElection(election: ElectionData) {
+      await db.insert(electionsTable).values(election);
     },
     async getElectionById(id: string) {
-      const election = elections.find((election) => id === election.id);
-      return await election;
+      const election = await db
+        .select()
+        .from(electionsTable)
+        .where(eq(electionsTable.id, id));
+      return election[0];
     },
     async changeVoteResult(result1: string, result2: string, id: string) {
       const election = elections.find((election) => id === election.id);

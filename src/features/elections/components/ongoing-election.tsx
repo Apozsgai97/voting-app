@@ -24,13 +24,13 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
         <h2 className="text-center text-2xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
           <OpenChoiceOne
-            name={election.choice_1.name}
+            name={election.choice1_name}
             choiceNumber={1}
             representativeId={currentRepresentative.id}
             electionId={election.id}
           />
           <OpenChoiceTwo
-            name={election.choice_2.name}
+            name={election.choice2_name}
             choiceNumber={2}
             representativeId={currentRepresentative.id}
             electionId={election.id}
@@ -44,7 +44,7 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
         <div className="stats shadow">
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
-            <div className="stat-value">{election.choice_1.name}</div>
+            <div className="stat-value">{election.choice1_name}</div>
             <div className="stat-title">Votes</div>
             <div className="stat-value">
               {
@@ -56,7 +56,7 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
           </div>
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
-            <div className="stat-value">{election.choice_2.name}</div>
+            <div className="stat-value">{election.choice2_name}</div>
             <div className="stat-title">Votes</div>
             <div className="stat-value">
               {" "}

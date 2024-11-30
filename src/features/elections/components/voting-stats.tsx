@@ -10,8 +10,16 @@ export function VotingStatistics({ election }: Props) {
     <section>
       <h2 className="text-center text-4xl font-bold">{election.issue}</h2>
       <div className="flex items-center justify-center gap-12">
-        <ChoiceStat choice={election.choice_1} />
-        <ChoiceStat choice={election.choice_2} />
+        <ChoiceStat
+          name={election.choice1_name}
+          votes={election.choice1_votes}
+          result={election.choice1_result}
+        />
+        <ChoiceStat
+          name={election.choice2_name}
+          votes={election.choice2_votes}
+          result={election.choice2_result}
+        />
       </div>
     </section>
   );

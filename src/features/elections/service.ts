@@ -1,6 +1,5 @@
 import { calculateResults } from "./logic";
 import { Repository } from "./repository";
-import { v4 as uuidv4 } from "uuid";
 
 export function createElectionService(repository: Repository) {
   return {
@@ -8,22 +7,16 @@ export function createElectionService(repository: Repository) {
       return await repository.getAllElections();
     },
     async addElection(issue: string, choice1: string, choice2: string) {
-      const id = uuidv4();
       const date = new Date().toISOString();
 
       const election = {
-        id: id,
         issue: issue,
-        choice_1: {
-          name: choice1,
-          votes: 0,
-          result: "pending",
-        },
-        choice_2: {
-          name: choice2,
-          votes: 0,
-          result: "pending",
-        },
+        choice1_name: choice1,
+        choice1_votes: 0,
+        choice1_result: "pending",
+        choice2_name: choice2,
+        choice2_votes: 0,
+        choice2_result: "pending",
         status: "ongoing",
         publish_date: date,
       };
