@@ -7,7 +7,7 @@ export const usersTable = pgTable("users", {
   email: varchar({ length: 255 }).notNull().unique(),
 });
 
-export const elections = pgTable("elections", {
+export const electionsTable = pgTable("elections", {
   id: uuid("id").primaryKey().defaultRandom(),
   issue: text("issue").notNull(),
   choice1_name: text("choice1_name").notNull(),

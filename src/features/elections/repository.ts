@@ -1,3 +1,6 @@
+import { db } from "@/db/index";
+import { electionsTable } from "@/db/schema";
+
 const elections = [
   {
     id: "88b9c1b8-abe6-4b93-8197-bf25bf84364f",
@@ -134,7 +137,7 @@ export type Election = {
 export function createElectionRepository() {
   return {
     async getAllElections() {
-      return await elections;
+      return await db.select().from(electionsTable);
     },
     async addElection(election: Election) {
       elections.unshift(election);
