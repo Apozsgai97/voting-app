@@ -161,10 +161,11 @@ export function createElectionRepository() {
       return election[0];
     },
     async changeVoteResult(result1: string, result2: string, id: string) {
-      const election = elections.find((election) => id === election.id);
-      election!.choice_1.result = result1;
-      election!.choice_2.result = result2;
-      election!.status = "closed";
+      await db.update(electionsTable).set({
+        choice1_result: result1,
+        choice2_result: result2,
+        status:"closed"
+      }).where(eq(electionsTable.id, id))
     },
   };
 }

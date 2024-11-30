@@ -8,16 +8,13 @@ describe("calculate result", () => {
       id: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
       issue:
         "Should the country adopt renewable energy as the primary power source?",
-      choice_1: {
-        name: "Yes",
-        votes: 10,
-        result: "Pending",
-      },
-      choice_2: {
-        name: "No",
-        votes: 50,
-        result: "Pending",
-      },
+      choice1_name: "Yes",
+      choice1_votes: 10,
+      choice1_result: "Pending",
+      choice2_name: "No",
+      choice2_votes: 50,
+      choice2_result: "Pending",
+
       status: "ongoing",
       publish_date: "2024-08-11T09:00:00.000Z",
     };
@@ -31,16 +28,13 @@ describe("calculate result", () => {
       id: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
       issue:
         "Should the country adopt renewable energy as the primary power source?",
-      choice_1: {
-        name: "Yes",
-        votes: 10,
-        result: "Pending",
-      },
-      choice_2: {
-        name: "No",
-        votes: 5,
-        result: "Pending",
-      },
+      choice1_name: "Yes",
+      choice1_votes: 10,
+      choice1_result: "Pending",
+      choice2_name: "No",
+      choice2_votes: 5,
+      choice2_result: "Pending",
+
       status: "ongoing",
       publish_date: "2024-08-11T09:00:00.000Z",
     };
@@ -54,16 +48,13 @@ describe("calculate result", () => {
       id: "3165d5b5-91fc-45df-97f0-6a9e02a3daaa",
       issue:
         "Should the country adopt renewable energy as the primary power source?",
-      choice_1: {
-        name: "Yes",
-        votes: 10,
-        result: "Pending",
-      },
-      choice_2: {
-        name: "No",
-        votes: 10,
-        result: "Pending",
-      },
+      choice1_name: "Yes",
+      choice1_votes: 10,
+      choice1_result: "Pending",
+      choice2_name: "No",
+      choice2_votes: 10,
+      choice2_result: "Pending",
+
       status: "ongoing",
       publish_date: "2024-08-11T09:00:00.000Z",
     };
