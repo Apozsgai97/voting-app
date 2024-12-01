@@ -1,16 +1,6 @@
-import { z } from "zod";
 import { Repository } from "./repository";
 import { RepresentativeData } from "./types";
-
-
-const NameSchema = z
-  .string()
-  .min(1, { message: "This field has to be filled." });
-
-const EmailSchema = z
-  .string()
-  .min(1, { message: "This field has to be filled." })
-  .email("This is not a valid email.");
+import { EmailSchema, NameSchema } from "./validation";
 
 export function createService(repository: Repository) {
   return {
