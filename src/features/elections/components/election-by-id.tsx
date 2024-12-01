@@ -1,17 +1,18 @@
 import { ElectionVote, Representative } from "@/features/representative-choice/repository";
-import { Election } from "../repository";
 import { OngoingElection } from "./ongoing-election";
 import { ClosedElection } from "./closed-election";
+import { electionFeature } from "../instance";
 
 type Props = {
-  election: Election;
+  id: string
   currentRepresentative: Representative;
   vote: ElectionVote;
   votesByElection: ElectionVote[];
 };
 
 
-export async function ElectionByIdPage({election, currentRepresentative, vote, votesByElection}: Props){
+export async function ElectionByIdPage({id, currentRepresentative, vote, votesByElection}: Props){
+  const election = await electionFeature.service.getElectionById(id);
  return(
    <main className="flex flex-col justify-center items-center p-0">
       {election.status === "ongoing" ? (

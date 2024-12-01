@@ -2,21 +2,28 @@ import { Election } from "@/features/elections/repository";
 import { Buttons } from "./buttons";
 import { PreviousVotesStats } from "./previous-votes-stats";
 import { PublicVotes } from "./public-votes";
-import { ElectionVote, Representative } from "../repository";
+import { getRepresentativeById } from "../action";
+import { representativeFeature } from "../instance";
 
 type Props = {
   elections: Election[];
-  votesByRepresentative: ElectionVote[];
-  representative: Representative;
-  publicUserRepId: string;
+  id: string;
 };
-export async function RepresentativeByIdPage({elections, votesByRepresentative, publicUserRepId, representative}: Props) {
+export async function RepresentativeByIdPage({elections, id
+}: Props) {
+  const representative = await getRepresentativeById(id);
+
+  const votesByRepresentative =
+    await representativeFeature.service.getVotesByRepresentatives(id);
+
+  const publicUserRepId =
+    await representativeFeature.service.getPublicUserRepId();
  return (
    <main className="flex flex-col justify-center items-center p-0">
      <h1 className="text-center text-4xl font-bold my-10 mt-28">
        {representative?.name || "Name"}
      </h1>
-     <Buttons repId={representative.id} publicUserRepId={publicUserRepId} />
+     <Buttons repId={representative!.id} publicUserRepId={publicUserRepId} />
      <div className="flex w-48 items-center justify-between"></div>
      <PublicVotes representative={representative!} />
      <p>

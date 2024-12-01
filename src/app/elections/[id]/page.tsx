@@ -1,5 +1,4 @@
 import {
-  electionFeature,
   representativeFeature,
   ElectionByIdPage,
 } from "@/features";
@@ -14,19 +13,19 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     await representativeFeature.service.getRepresentativeById(
       currentRepresentativeId
     );
-  const election = await electionFeature.service.getElectionById(id);
+
 
   const vote = await representativeFeature.service.getVoteByIds(
-    election.id,
+  id,
     currentRepresentativeId
   );
 
   const votesByElection =
-    await representativeFeature.service.getVotesByElections(election.id);
+    await representativeFeature.service.getVotesByElections(id);
 
   return (
     <ElectionByIdPage
-      election={election}
+      id={id}
       vote={vote}
       votesByElection={votesByElection}
       currentRepresentative={currentRepresentative!}
