@@ -2,7 +2,7 @@ export type Election = {
   id: string;
   issue: string;
   choice1_name: string;
-  choice1_votes: number | null ;
+  choice1_votes: number | null;
   choice1_result: string;
   choice2_name: string;
   choice2_votes: number | null;

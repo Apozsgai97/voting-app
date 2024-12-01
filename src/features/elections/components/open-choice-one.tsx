@@ -4,12 +4,10 @@ type Props = {
   choiceNumber: number;
   electionId: string;
 };
-export function OpenChoiceOne({
-  name,
-}: Props) {
-    // async function addPreferenceOne() {
-    //   await addToPublicPreference(representativeId, electionId, choiceNumber);
-    // }
+export function OpenChoiceOne({ name }: Props) {
+  // async function addPreferenceOne() {
+  //   await addToPublicPreference(representativeId, electionId, choiceNumber);
+  // }
 
   return (
     <article className="stats shadow my-8">

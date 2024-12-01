@@ -2,9 +2,12 @@ import { ElectionVote, Election } from "../types";
 
 type Props = {
   elections: Election[];
-  votesByRepresentative: ElectionVote[]
+  votesByRepresentative: ElectionVote[];
 };
-export function PreviousVotesStats({ elections, votesByRepresentative}: Props) {
+export function PreviousVotesStats({
+  elections,
+  votesByRepresentative,
+}: Props) {
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Previous votes</h2>
@@ -23,8 +26,8 @@ export function PreviousVotesStats({ elections, votesByRepresentative}: Props) {
               <tr key={vote.id}>
                 <th>{index + 1}</th>
                 <td>
-                  {elections.find((e) => e.id === vote.electionId)
-                    ?.issue || "Unknown Issue"}
+                  {elections.find((e) => e.id === vote.electionId)?.issue ||
+                    "Unknown Issue"}
                 </td>
                 <td>{vote.choice}</td>
                 <td>{vote.agreementRate}%</td>

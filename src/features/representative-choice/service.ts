@@ -18,7 +18,6 @@ export function createService(repository: Repository) {
       }
 
       const representative: RepresentativeData = {
-  
         name: validatedName.data,
         email: validatedEmail.data,
         publicVotes: 0,
@@ -49,19 +48,19 @@ export function createService(repository: Repository) {
       const newPublicVotes = representative.publicVotes - 1;
       await repository.changePublicVotes(id, newPublicVotes);
     },
-    async getVotesByElections(id:string){
-      return await repository.getVotesByElectionId(id)
+    async getVotesByElections(id: string) {
+      return await repository.getVotesByElectionId(id);
     },
-    async getVotesByRepresentatives(id:string){
-      return await repository.getVotesByRepresentativeId(id)
+    async getVotesByRepresentatives(id: string) {
+      return await repository.getVotesByRepresentativeId(id);
     },
     async addToPublicPreference(
       id: string,
       electionId: string,
       choiceNumber: number
     ) {
-      const election = await repository.getVoteByIds(electionId, id)
-      
+      const election = await repository.getVoteByIds(electionId, id);
+
       let new_choice_1_votes = election!.choice1Votes;
       let new_choice_2_votes = election!.choice2Votes;
       if (choiceNumber === 1) new_choice_1_votes = new_choice_1_votes + 1;
@@ -74,8 +73,8 @@ export function createService(repository: Repository) {
         new_choice_2_votes
       );
     },
-    async getVoteByIds(electionId:string, representativeId:string){
-     return await repository.getVoteByIds(electionId, representativeId);
-    }
+    async getVoteByIds(electionId: string, representativeId: string) {
+      return await repository.getVoteByIds(electionId, representativeId);
+    },
   };
 }

@@ -1,9 +1,9 @@
 import { config } from "dotenv";
 import { Pool } from "pg";
 import {
- electionsTable,
- representativesTable,
- electionVotesTable,
+  electionsTable,
+  representativesTable,
+  electionVotesTable,
 } from "./schema";
 import { drizzle } from "drizzle-orm/node-postgres";
 

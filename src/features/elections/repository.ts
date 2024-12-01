@@ -22,11 +22,14 @@ export function createElectionRepository() {
       return election[0];
     },
     async changeVoteResult(result1: string, result2: string, id: string) {
-      await db.update(electionsTable).set({
-        choice1_result: result1,
-        choice2_result: result2,
-        status:"closed"
-      }).where(eq(electionsTable.id, id))
+      await db
+        .update(electionsTable)
+        .set({
+          choice1_result: result1,
+          choice2_result: result2,
+          status: "closed",
+        })
+        .where(eq(electionsTable.id, id));
     },
   };
 }

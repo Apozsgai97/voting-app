@@ -1,6 +1,6 @@
 type Props = {
   name: string;
-  votes: number | null ;
+  votes: number | null;
   result: string;
 };
 

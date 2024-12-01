@@ -49,9 +49,17 @@ export function createRepository() {
         .from(electionVotesTable)
         .where(eq(electionVotesTable.representativeId, id));
     },
-    async getVoteByIds(electionId: string, representativeId:string){
-      const vote = await db.select().from(electionVotesTable).where(and(eq(electionVotesTable.electionId,electionId), eq(electionVotesTable.representativeId, representativeId)))
-      return vote[0]
+    async getVoteByIds(electionId: string, representativeId: string) {
+      const vote = await db
+        .select()
+        .from(electionVotesTable)
+        .where(
+          and(
+            eq(electionVotesTable.electionId, electionId),
+            eq(electionVotesTable.representativeId, representativeId)
+          )
+        );
+      return vote[0];
     },
     async changeChoiceVotes(
       id: string,
@@ -59,10 +67,18 @@ export function createRepository() {
       new_choice_1_votes: number,
       new_choice_2_votes: number
     ) {
-      await db.update(electionVotesTable).set({
-        choice1Votes:new_choice_1_votes,
-        choice2Votes: new_choice_2_votes,
-      }).where(and(eq(electionVotesTable.electionId, electionId), eq(electionVotesTable.representativeId, id)))
+      await db
+        .update(electionVotesTable)
+        .set({
+          choice1Votes: new_choice_1_votes,
+          choice2Votes: new_choice_2_votes,
+        })
+        .where(
+          and(
+            eq(electionVotesTable.electionId, electionId),
+            eq(electionVotesTable.representativeId, id)
+          )
+        );
     },
   };
 }

@@ -1,6 +1,5 @@
 import { Representative } from "../types";
 
-
 export function PublicVotes({
   representative,
 }: {

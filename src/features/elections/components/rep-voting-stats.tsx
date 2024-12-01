@@ -24,21 +24,9 @@ export function RepVotingStats({ votesByElection }: Props) {
               <tr key={vote.id}>
                 <th>{index + 1}</th>
                 <td>{vote.representativeId}</td>
-                <td>
-                  {
-                   vote.currentPublicVotes
-                  }
-                </td>
-                <td>
-                 {vote.choice}
-                </td>
-                <td>
-                  {" "}
-                  {
-                   vote.agreementRate
-                  }
-                  %
-                </td>
+                <td>{vote.currentPublicVotes}</td>
+                <td>{vote.choice}</td>
+                <td> {vote.agreementRate}%</td>
               </tr>
             ))}
           </tbody>

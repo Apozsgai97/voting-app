@@ -1,7 +1,4 @@
-import {
-  representativeFeature,
-  ElectionByIdPage,
-} from "@/features";
+import { representativeFeature, ElectionByIdPage } from "@/features";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
@@ -14,9 +11,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
       currentRepresentativeId
     );
 
-
   const vote = await representativeFeature.service.getVoteByIds(
-  id,
+    id,
     currentRepresentativeId
   );
 

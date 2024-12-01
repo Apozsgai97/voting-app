@@ -5,10 +5,7 @@ type Props = {
   choiceNumber: number;
   electionId: string;
 };
-export function OpenChoiceTwo({
-  name,
-  
-}: Props) {
+export function OpenChoiceTwo({ name }: Props) {
   // async function addPreferenceTwo() {
   //   await addToPublicPreference(representativeId, electionId, choiceNumber);
   // }

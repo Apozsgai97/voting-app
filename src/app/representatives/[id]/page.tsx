@@ -8,10 +8,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
 
   return (
     <>
-      <RepresentativeByIdPage
-        elections={elections}
-        id={id}
-      />
+      <RepresentativeByIdPage elections={elections} id={id} />
     </>
   );
 }
