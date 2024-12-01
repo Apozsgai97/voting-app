@@ -2,8 +2,8 @@
 
 import { closeAndCalculateVoteResult } from "../action";
 import { Election, ElectionVote, Representative} from "../types";
-import { OpenChoiceOne } from "./open-choice-one";
-import { OpenChoiceTwo } from "./open-choice-two";
+// import { OpenChoiceOne } from "./open-choice-one";
+// import { OpenChoiceTwo } from "./open-choice-two";
 
 type Props = {
   election: Election;
@@ -11,7 +11,7 @@ type Props = {
   vote: ElectionVote
 };
 
-export function OngoingElection({ election, currentRepresentative, vote }: Props) {
+export function OngoingElection({ election }: Props) {
   async function handleClick() {
     await closeAndCalculateVoteResult(election.id);
   }
@@ -24,7 +24,7 @@ export function OngoingElection({ election, currentRepresentative, vote }: Props
       <section>
         <h2 className="text-center text-2xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
-          <OpenChoiceOne
+          {/* <OpenChoiceOne
             name={election.choice1_name}
             choiceNumber={1}
             representativeId={currentRepresentative.id}
@@ -35,7 +35,7 @@ export function OngoingElection({ election, currentRepresentative, vote }: Props
             choiceNumber={2}
             representativeId={currentRepresentative.id}
             electionId={election.id}
-          />
+          /> */}
         </div>
       </section>
       <section className="flex flex-col justify-center items-center">
@@ -47,21 +47,14 @@ export function OngoingElection({ election, currentRepresentative, vote }: Props
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice1_name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value">
-              {
-                vote.choice1Votes
-              }
+            <div className="stat-value"> 0
             </div>
           </div>
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice2_name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value">
-              {" "}
-              {
-                vote.choice2Votes
-              }
+            <div className="stat-value"> 0
             </div>
           </div>
         </div>
