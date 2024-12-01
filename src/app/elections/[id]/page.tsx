@@ -1,10 +1,8 @@
 import {
-  ClosedElection,
-  OngoingElection,
   electionFeature,
   representativeFeature,
+  ElectionByIdPage,
 } from "@/features";
-import { notFound } from "next/navigation";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
@@ -17,26 +15,21 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
       currentRepresentativeId
     );
   const election = await electionFeature.service.getElectionById(id);
-  
-  const vote = await representativeFeature.service.getVoteByIds(election.id, currentRepresentativeId)
-  
-  const votesByElection = await representativeFeature.service.getVotesByElections(election.id);
 
-  if (!election) {
-    notFound();
-  }
+  const vote = await representativeFeature.service.getVoteByIds(
+    election.id,
+    currentRepresentativeId
+  );
+
+  const votesByElection =
+    await representativeFeature.service.getVotesByElections(election.id);
 
   return (
-    <main className="flex flex-col justify-center items-center p-0">
-      {election.status === "ongoing" ? (
-        <OngoingElection
-          election={election}
-          currentRepresentative={currentRepresentative!}
-          vote = {vote}
-        />
-      ) : (
-        <ClosedElection election={election} votesByElection ={votesByElection} />
-      )}
-    </main>
+    <ElectionByIdPage
+      election={election}
+      vote={vote}
+      votesByElection={votesByElection}
+      currentRepresentative={currentRepresentative!}
+    />
   );
 }
