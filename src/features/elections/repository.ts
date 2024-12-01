@@ -1,6 +1,7 @@
 import { db } from "@/db/index";
 import { electionsTable } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
+import { ElectionData } from "./types";
 
 // const elections = [
 //   {
@@ -117,30 +118,6 @@ import { desc, eq } from "drizzle-orm";
 //     publish_date: "2020-11-05T01:00:00.000Z",
 //   },
 // ];
-
-export type Election = {
-  id: string;
-  issue: string;
-  choice1_name: string;
-  choice1_votes: number | null ;
-  choice1_result: string;
-  choice2_name: string;
-  choice2_votes: number | null;
-  choice2_result: string;
-  status: string;
-  publish_date: string;
-};
-export type ElectionData = {
-  issue: string;
-  choice1_name: string;
-  choice1_votes: number;
-  choice1_result: string;
-  choice2_name: string;
-  choice2_votes: number;
-  choice2_result: string;
-  status: string;
-  publish_date: string;
-};
 
 export function createElectionRepository() {
   return {

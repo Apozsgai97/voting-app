@@ -1,7 +1,4 @@
-import {
-  electionFeature,
-} from "@/features";
-import { RepresentativeByIdPage } from "@/features";
+import { electionFeature, RepresentativeByIdPage } from "@/features";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;

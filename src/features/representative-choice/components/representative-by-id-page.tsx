@@ -1,4 +1,4 @@
-import { Election } from "@/features/elections/repository";
+import { Election } from "../types";
 import { Buttons } from "./buttons";
 import { PreviousVotesStats } from "./previous-votes-stats";
 import { PublicVotes } from "./public-votes";

@@ -1,7 +1,7 @@
 "use client";
-import { ElectionVote, Representative } from "@/features/representative-choice/repository";
+
 import { closeAndCalculateVoteResult } from "../action";
-import { Election } from "../repository";
+import { Election, ElectionVote, Representative} from "../types";
 import { OpenChoiceOne } from "./open-choice-one";
 import { OpenChoiceTwo } from "./open-choice-two";
 

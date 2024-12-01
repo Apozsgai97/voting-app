@@ -1,4 +1,4 @@
-import { ElectionVote } from "@/features/representative-choice/repository";
+import { ElectionVote } from "../types";
 
 type Props = {
   votesByElection: ElectionVote[];

@@ -1,4 +1,4 @@
-import { ElectionVote, Representative } from "@/features/representative-choice/repository";
+import { ElectionVote, Representative } from "../types";
 import { OngoingElection } from "./ongoing-election";
 import { ClosedElection } from "./closed-election";
 import { electionFeature } from "../instance";

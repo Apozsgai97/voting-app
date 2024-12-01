@@ -1,5 +1,5 @@
-import { ElectionVote } from "@/features/representative-choice/repository";
-import { Election } from "../repository";
+import { ElectionVote } from "../types";
+import { Election } from "../types";
 import { RepVotingStats } from "./rep-voting-stats";
 import { VotingStatistics } from "./voting-stats";
 

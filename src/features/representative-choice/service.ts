@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { Repository, RepresentativeData } from "./repository";
+import { Repository } from "./repository";
+import { RepresentativeData } from "./types";
 
 
 const NameSchema = z

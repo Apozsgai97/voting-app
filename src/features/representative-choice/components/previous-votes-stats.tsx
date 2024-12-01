@@ -1,5 +1,4 @@
-import { Election } from "@/features/elections/repository";
-import { ElectionVote } from "../repository";
+import { ElectionVote, Election } from "../types";
 
 type Props = {
   elections: Election[];

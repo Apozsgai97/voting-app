@@ -1,4 +1,5 @@
-import { Representative } from "../repository";
+import { Representative } from "../types";
+
 
 export function PublicVotes({
   representative,

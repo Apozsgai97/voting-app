@@ -1,4 +1,4 @@
-import { Election } from "../repository";
+import { Election } from "../types";
 import { ChoiceStat } from "./choice-stat";
 
 type Props = {

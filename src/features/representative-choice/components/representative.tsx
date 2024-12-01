@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Representative as Rep } from "../repository";
+import { Representative as Rep } from "../types";
 
 type Props = {
   representatives: Rep[];

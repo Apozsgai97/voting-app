@@ -1,31 +1,7 @@
 import { db } from "@/db/index";
 import { electionVotesTable, representativesTable } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
-
-export type Representative = {
-  id: string;
-  name: string;
-  email: string;
-  publicVotes: number;
-}
-
-export type RepresentativeData = {
-  name: string;
-  email: string;
-  publicVotes: number;
-};
-  
-  
-  export type ElectionVote = {
-    id: string;
-    representativeId: string;
-    electionId: string;
-    choice1Votes: number;
-    choice2Votes: number;
-    currentPublicVotes: number;
-    choice: string;
-    agreementRate: number;
-  };
+import { RepresentativeData } from "./types";
 
 // const representatives: any = [
 //   {
