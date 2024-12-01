@@ -16,10 +16,11 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     await representativeFeature.service.getRepresentativeById(
       currentRepresentativeId
     );
-
   const election = await electionFeature.service.getElectionById(id);
-  const representatives =
-    await representativeFeature.service.getRepresentativesThatVoted(id);
+  
+  const vote = await representativeFeature.service.getVoteByIds(election.id, currentRepresentativeId)
+  
+  const votesByElection = await representativeFeature.service.getVotesByElections(election.id);
 
   if (!election) {
     notFound();
@@ -31,9 +32,10 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
         <OngoingElection
           election={election}
           currentRepresentative={currentRepresentative!}
+          vote = {vote}
         />
       ) : (
-        <ClosedElection election={election} representatives={representatives} />
+        <ClosedElection election={election} votesByElection ={votesByElection} />
       )}
     </main>
   );

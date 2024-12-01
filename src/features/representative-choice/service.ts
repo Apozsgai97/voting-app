@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { Repository, Representative } from "./repository";
-import { v4 as uuidv4 } from "uuid";
+import { Repository, RepresentativeData } from "./repository";
+
 
 const NameSchema = z
   .string()
@@ -19,7 +19,6 @@ export function createService(repository: Repository) {
     async addRepresentative(name: string, email: string) {
       const validatedName = NameSchema.safeParse(name);
       const validatedEmail = EmailSchema.safeParse(email);
-      const id = uuidv4();
 
       if (!validatedName.success || !validatedEmail.success) {
         return {
@@ -27,12 +26,11 @@ export function createService(repository: Repository) {
         };
       }
 
-      const representative: Representative = {
-        id: id,
+      const representative: RepresentativeData = {
+  
         name: validatedName.data,
         email: validatedEmail.data,
         publicVotes: 0,
-        elections: [],
       };
 
       repository.addRepresentative(representative);
@@ -60,25 +58,21 @@ export function createService(repository: Repository) {
       const newPublicVotes = representative.publicVotes - 1;
       await repository.changePublicVotes(id, newPublicVotes);
     },
-    async getRepresentativesThatVoted(id: string) {
-      const representatives = await repository.getAllRepresentatives();
-      const representativesThatVoted = representatives.filter(
-        (representative) =>
-          representative.elections.some((e) => e.electionId === id)
-      );
-      return representativesThatVoted;
+    async getVotesByElections(id:string){
+      return await repository.getVotesByElectionId(id)
+    },
+    async getVotesByRepresentatives(id:string){
+      return await repository.getVotesByRepresentativeId(id)
     },
     async addToPublicPreference(
       id: string,
       electionId: string,
       choiceNumber: number
     ) {
-      const representative = await repository.getRepresentativeById(id);
-      const election = representative.elections.find(
-        (election) => election.electionId === electionId
-      );
-      let new_choice_1_votes = election!.choice_1_votes;
-      let new_choice_2_votes = election!.choice_2_votes;
+      const election = await repository.getVoteByIds(electionId, id)
+      
+      let new_choice_1_votes = election!.choice1Votes;
+      let new_choice_2_votes = election!.choice2Votes;
       if (choiceNumber === 1) new_choice_1_votes = new_choice_1_votes + 1;
       if (choiceNumber === 2) new_choice_2_votes = new_choice_2_votes + 1;
 
@@ -89,5 +83,8 @@ export function createService(repository: Repository) {
         new_choice_2_votes
       );
     },
+    async getVoteByIds(electionId:string, representativeId:string){
+     return await repository.getVoteByIds(electionId, representativeId);
+    }
   };
 }

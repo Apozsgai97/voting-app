@@ -1,11 +1,11 @@
 import { Election } from "@/features/elections/repository";
-import { Representative } from "../repository";
+import { ElectionVote } from "../repository";
 
 type Props = {
   elections: Election[];
-  representative: Representative;
+  votesByRepresentative: ElectionVote[]
 };
-export function PreviousVotesStats({ elections, representative }: Props) {
+export function PreviousVotesStats({ elections, votesByRepresentative}: Props) {
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Previous votes</h2>
@@ -20,15 +20,15 @@ export function PreviousVotesStats({ elections, representative }: Props) {
             </tr>
           </thead>
           <tbody>
-            {representative?.elections.map((representative, index) => (
-              <tr key={index}>
+            {votesByRepresentative.map((vote, index) => (
+              <tr key={vote.id}>
                 <th>{index + 1}</th>
                 <td>
-                  {elections.find((e) => e.id === representative.electionId)
+                  {elections.find((e) => e.id === vote.electionId)
                     ?.issue || "Unknown Issue"}
                 </td>
-                <td>{representative.choice}</td>
-                <td>{representative.agreement_rate}%</td>
+                <td>{vote.choice}</td>
+                <td>{vote.agreementRate}%</td>
               </tr>
             ))}
           </tbody>

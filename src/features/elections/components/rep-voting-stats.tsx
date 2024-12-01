@@ -1,12 +1,10 @@
-import { Representative } from "@/features/representative-choice/repository";
-import { Election } from "../repository";
+import { ElectionVote } from "@/features/representative-choice/repository";
 
 type Props = {
-  election: Election;
-  representatives: Representative[];
+  votesByElection: ElectionVote[];
 };
 
-export function RepVotingStats({ election, representatives }: Props) {
+export function RepVotingStats({ votesByElection }: Props) {
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Representatives Statistics</h2>
@@ -15,37 +13,29 @@ export function RepVotingStats({ election, representatives }: Props) {
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
+              <th>Representative Id</th>
               <th>Public Votes</th>
               <th>Choice</th>
               <th>Agreement Rate</th>
             </tr>
           </thead>
           <tbody>
-            {representatives.map((representative, index) => (
-              <tr key={representative.id}>
+            {votesByElection.map((vote, index) => (
+              <tr key={vote.id}>
                 <th>{index + 1}</th>
-                <td>{representative.name}</td>
+                <td>{vote.representativeId}</td>
                 <td>
                   {
-                    representative.elections.find(
-                      (e) => e.electionId === election.id
-                    )?.current_public_votes
+                   vote.currentPublicVotes
                   }
                 </td>
                 <td>
-                  {
-                    representative.elections.find(
-                      (e) => e.electionId === election.id
-                    )?.choice
-                  }
+                 {vote.choice}
                 </td>
                 <td>
                   {" "}
                   {
-                    representative.elections.find(
-                      (e) => e.electionId === election.id
-                    )?.agreement_rate
+                   vote.agreementRate
                   }
                   %
                 </td>

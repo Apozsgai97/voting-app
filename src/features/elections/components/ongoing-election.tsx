@@ -1,5 +1,5 @@
 "use client";
-import { Representative } from "@/features/representative-choice/repository";
+import { ElectionVote, Representative } from "@/features/representative-choice/repository";
 import { closeAndCalculateVoteResult } from "../action";
 import { Election } from "../repository";
 import { OpenChoiceOne } from "./open-choice-one";
@@ -8,9 +8,10 @@ import { OpenChoiceTwo } from "./open-choice-two";
 type Props = {
   election: Election;
   currentRepresentative: Representative;
+  vote: ElectionVote
 };
 
-export function OngoingElection({ election, currentRepresentative }: Props) {
+export function OngoingElection({ election, currentRepresentative, vote }: Props) {
   async function handleClick() {
     await closeAndCalculateVoteResult(election.id);
   }
@@ -48,9 +49,7 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
             <div className="stat-title">Votes</div>
             <div className="stat-value">
               {
-                currentRepresentative.elections.find(
-                  (e) => e.electionId === election.id
-                )?.choice_1_votes
+                vote.choice1Votes
               }
             </div>
           </div>
@@ -61,9 +60,7 @@ export function OngoingElection({ election, currentRepresentative }: Props) {
             <div className="stat-value">
               {" "}
               {
-                currentRepresentative.elections.find(
-                  (e) => e.electionId === election.id
-                )?.choice_2_votes
+                vote.choice2Votes
               }
             </div>
           </div>

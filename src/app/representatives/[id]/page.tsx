@@ -13,6 +13,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
 
   const representative = await getRepresentativeById(id);
 
+  const votesByRepresentative = await representativeFeature.service.getVotesByRepresentatives(id)
+
   const publicUserRepId =
     await representativeFeature.service.getPublicUserRepId();
 
@@ -31,8 +33,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
         {representative?.email || "example@gmail.com"}
       </p>
       <PreviousVotesStats
-        representative={representative!}
         elections={elections}
+        votesByRepresentative={votesByRepresentative}
       />
     </main>
   );
