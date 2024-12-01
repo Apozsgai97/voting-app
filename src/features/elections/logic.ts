@@ -1,4 +1,4 @@
-import { Election } from "./repository";
+import { Election } from "./types";
 
 export function calculateResults(election: Election) {
   let result1 = "";

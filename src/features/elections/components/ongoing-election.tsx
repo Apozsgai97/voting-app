@@ -1,14 +1,14 @@
 "use client";
 
 import { closeAndCalculateVoteResult } from "../action";
-import { Election, ElectionVote, Representative} from "../types";
-// import { OpenChoiceOne } from "./open-choice-one";
-// import { OpenChoiceTwo } from "./open-choice-two";
+import { Election, ElectionVote, Representative } from "../types";
+import { OpenChoiceOne } from "./open-choice-one";
+import { OpenChoiceTwo } from "./open-choice-two";
 
 type Props = {
   election: Election;
   currentRepresentative: Representative;
-  vote: ElectionVote
+  vote: ElectionVote;
 };
 
 export function OngoingElection({ election }: Props) {
@@ -24,18 +24,16 @@ export function OngoingElection({ election }: Props) {
       <section>
         <h2 className="text-center text-2xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
-          {/* <OpenChoiceOne
+          <OpenChoiceOne
             name={election.choice1_name}
             choiceNumber={1}
-            representativeId={currentRepresentative.id}
             electionId={election.id}
           />
           <OpenChoiceTwo
             name={election.choice2_name}
             choiceNumber={2}
-            representativeId={currentRepresentative.id}
             electionId={election.id}
-          /> */}
+          />
         </div>
       </section>
       <section className="flex flex-col justify-center items-center">
@@ -47,15 +45,13 @@ export function OngoingElection({ election }: Props) {
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice1_name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value"> 0
-            </div>
+            <div className="stat-value"> 0</div>
           </div>
           <div className="stat place-items-center">
             <div className="stat-title">Choice</div>
             <div className="stat-value">{election.choice2_name}</div>
             <div className="stat-title">Votes</div>
-            <div className="stat-value"> 0
-            </div>
+            <div className="stat-value"> 0</div>
           </div>
         </div>
       </section>

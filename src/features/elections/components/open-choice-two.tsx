@@ -1,20 +1,17 @@
 "use client";
-import { addToPublicPreference } from "@/features/representative-choice";
+
 type Props = {
   name: string;
   choiceNumber: number;
-  representativeId: string;
   electionId: string;
 };
 export function OpenChoiceTwo({
   name,
-  representativeId,
-  electionId,
-  choiceNumber,
+  
 }: Props) {
-  async function addPreferenceTwo() {
-    await addToPublicPreference(representativeId, electionId, choiceNumber);
-  }
+  // async function addPreferenceTwo() {
+  //   await addToPublicPreference(representativeId, electionId, choiceNumber);
+  // }
 
   return (
     <article className="stats shadow my-8">
@@ -32,7 +29,7 @@ export function OpenChoiceTwo({
           >
             Vote
           </button>
-          <button
+          {/* <button
             onClick={addPreferenceTwo}
             className=" btn
            bg-emerald-900
@@ -42,7 +39,7 @@ export function OpenChoiceTwo({
            "
           >
             Add preference
-          </button>
+          </button> */}
         </div>
       </div>
     </article>
