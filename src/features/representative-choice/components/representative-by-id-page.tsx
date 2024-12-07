@@ -21,7 +21,7 @@ export async function RepresentativeByIdPage({ elections, id }: Props) {
       </h1>
       <Buttons representativeId={id} publicUserRepId={publicUserRepId} />
       <div className="flex w-48 items-center justify-between"></div>
-      <PublicVotes representative={representative!} />
+      <PublicVotes representativeId={id} />
       <PreviousVotesStats
         elections={elections}
         representativeId={id}
