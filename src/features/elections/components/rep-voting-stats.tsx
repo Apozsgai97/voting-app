@@ -1,10 +1,10 @@
-import {RepVoteStats } from "../types";
+import { RepVoteStats } from "../types";
 
 type Props = {
   votesWithRepresentativeName: RepVoteStats[];
 };
 
-export function RepVotingStats({votesWithRepresentativeName }: Props) {
+export function RepVotingStats({ votesWithRepresentativeName }: Props) {
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Representatives Statistics</h2>

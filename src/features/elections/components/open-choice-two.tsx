@@ -4,7 +4,6 @@ type Props = {
   name: string;
 };
 export function OpenChoiceTwo({ name }: Props) {
-
   return (
     <article className="stats shadow my-8">
       <div className="stat text-center">

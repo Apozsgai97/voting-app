@@ -5,9 +5,8 @@ import { Navbar } from "./navbar";
 import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Voting App",
@@ -21,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dmSans.className} antialiased`}
-      >
+      <body className={`${dmSans.className} antialiased`}>
         <Navbar />
         {children}
       </body>

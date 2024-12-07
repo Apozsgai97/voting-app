@@ -22,16 +22,8 @@ export function OngoingElection({ election }: Props) {
       <section>
         <h2 className="text-center text-2xl font-bold">{election.issue}</h2>
         <div className="flex items-center justify-center gap-12">
-          <OpenChoiceOne
-            name={election.choice1_name}
-            choiceNumber={1}
-            electionId={election.id}
-          />
-          <OpenChoiceTwo
-            name={election.choice2_name}
-            choiceNumber={2}
-            electionId={election.id}
-          />
+          <OpenChoiceOne name={election.choice1_name} />
+          <OpenChoiceTwo name={election.choice2_name} />
         </div>
       </section>
       <section className="flex flex-col justify-center items-center">

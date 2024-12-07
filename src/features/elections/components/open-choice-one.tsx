@@ -3,7 +3,6 @@ type Props = {
   name: string;
 };
 export function OpenChoiceOne({ name }: Props) {
-
   return (
     <article className="stats shadow my-8">
       <div className="stat text-center">

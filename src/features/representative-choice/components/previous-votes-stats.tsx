@@ -10,9 +10,11 @@ export async function PreviousVotesStats({
   representativeId,
 }: Props) {
   const votesByRepresentative =
-    await representativeFeature.service.getVotesByRepresentatives(representativeId);
- 
-    return (
+    await representativeFeature.service.getVotesByRepresentatives(
+      representativeId
+    );
+
+  return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Previous votes</h2>
       <div className="overflow-x-auto">
