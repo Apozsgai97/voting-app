@@ -12,9 +12,6 @@ type Props = {
 export async function RepresentativeByIdPage({ elections, id }: Props) {
   const representative = await getRepresentativeById(id);
 
-  const votesByRepresentative =
-    await representativeFeature.service.getVotesByRepresentatives(id);
-
   const publicUserRepId =
     await representativeFeature.service.getPublicUserRepId();
   return (
@@ -31,7 +28,7 @@ export async function RepresentativeByIdPage({ elections, id }: Props) {
       </p>
       <PreviousVotesStats
         elections={elections}
-        votesByRepresentative={votesByRepresentative}
+        representativeId={id}
       />
     </main>
   );

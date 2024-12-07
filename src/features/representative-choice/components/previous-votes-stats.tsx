@@ -1,14 +1,18 @@
-import { ElectionVote, Election } from "../types";
+import { representativeFeature } from "../instance";
+import { Election } from "../types";
 
 type Props = {
   elections: Election[];
-  votesByRepresentative: ElectionVote[];
+  representativeId: string;
 };
-export function PreviousVotesStats({
+export async function PreviousVotesStats({
   elections,
-  votesByRepresentative,
+  representativeId,
 }: Props) {
-  return (
+  const votesByRepresentative =
+    await representativeFeature.service.getVotesByRepresentatives(representativeId);
+ 
+    return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Previous votes</h2>
       <div className="overflow-x-auto">
