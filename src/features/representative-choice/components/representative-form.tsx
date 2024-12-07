@@ -1,4 +1,4 @@
-import { addRepresentative } from "../action";
+import { addRepresentative } from "../actions";
 
 export async function RepresentativeForm() {
   return (

@@ -1,4 +1,4 @@
-import { addToPublicVotes, changeRepId } from "../action";
+import { addToPublicVotes, changeRepId } from "../actions";
 
 type Props = {
   status: string;
