@@ -94,5 +94,12 @@ export function createService(repository: Repository) {
       }
       return votesWithRepresentativeName;
     },
+    async getPublicUserChoiceAndRepresentative(id: string){
+      const representative = await repository.getRepresentativeById(id);
+
+      const publicUserRepId = await repository.getPublicUserRepId();
+
+      return {representative, publicUserRepId}
+    }
   };
 }
