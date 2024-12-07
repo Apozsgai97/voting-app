@@ -1,12 +1,10 @@
-import { getRepresentativeById } from "../action";
+import { Representative } from "../types";
 
-
-export async function PublicVotes({
-  representativeId,
+export function PublicVotes({
+  representative,
 }: {
-  representativeId: string;
+  representative: Representative;
 }) {
-  const representative = await getRepresentativeById(representativeId);
   return (
     <>
       <article className="stats shadow my-8">
