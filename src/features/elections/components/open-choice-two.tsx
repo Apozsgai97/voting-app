@@ -2,13 +2,8 @@
 
 type Props = {
   name: string;
-  choiceNumber: number;
-  electionId: string;
 };
 export function OpenChoiceTwo({ name }: Props) {
-  // async function addPreferenceTwo() {
-  //   await addToPublicPreference(representativeId, electionId, choiceNumber);
-  // }
 
   return (
     <article className="stats shadow my-8">
@@ -26,17 +21,6 @@ export function OpenChoiceTwo({ name }: Props) {
           >
             Vote
           </button>
-          {/* <button
-            onClick={addPreferenceTwo}
-            className=" btn
-           bg-emerald-900
-           text-gray-100
-           hover:bg-emerald-800
-           rounded-lg
-           "
-          >
-            Add preference
-          </button> */}
         </div>
       </div>
     </article>
