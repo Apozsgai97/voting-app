@@ -73,9 +73,6 @@ export function createService(repository: Repository) {
         new_choice_2_votes
       );
     },
-    async getVoteByIds(electionId: string, representativeId: string) {
-      return await repository.getVoteByIds(electionId, representativeId);
-    },
     async getRepresentativesAndVotes(id: string) {
       const electionVotes = await repository.getVotesByElectionId(id);
       const representatives = await repository.getAllRepresentatives();
