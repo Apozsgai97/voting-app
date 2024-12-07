@@ -6,14 +6,11 @@ import { electionFeature } from "../instance";
 type Props = {
   id: string;
   currentRepresentative: Representative;
-  vote: ElectionVote;
   votesByElection: ElectionVote[];
 };
 
 export async function ElectionByIdPage({
   id,
-  currentRepresentative,
-  vote,
   votesByElection,
 }: Props) {
   const election = await electionFeature.service.getElectionById(id);
@@ -22,8 +19,6 @@ export async function ElectionByIdPage({
       {election.status === "ongoing" ? (
         <OngoingElection
           election={election}
-          currentRepresentative={currentRepresentative!}
-          vote={vote}
         />
       ) : (
         <ClosedElection election={election} votesByElection={votesByElection} />

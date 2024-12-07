@@ -11,18 +11,12 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
       currentRepresentativeId
     );
 
-  const vote = await representativeFeature.service.getVoteByIds(
-    id,
-    currentRepresentativeId
-  );
-
   const votesByElection =
     await representativeFeature.service.getVotesByElections(id);
 
   return (
     <ElectionByIdPage
       id={id}
-      vote={vote}
       votesByElection={votesByElection}
       currentRepresentative={currentRepresentative!}
     />
