@@ -19,13 +19,9 @@ export async function RepresentativeByIdPage({ elections, id }: Props) {
       <h1 className="text-center text-4xl font-bold my-10 mt-28">
         {representative?.name || "Name"}
       </h1>
-      <Buttons repId={representative!.id} publicUserRepId={publicUserRepId} />
+      <Buttons representativeId={id} publicUserRepId={publicUserRepId} />
       <div className="flex w-48 items-center justify-between"></div>
       <PublicVotes representative={representative!} />
-      <p>
-        <span className="font-bold">Email:</span>{" "}
-        {representative?.email || "example@gmail.com"}
-      </p>
       <PreviousVotesStats
         elections={elections}
         representativeId={id}

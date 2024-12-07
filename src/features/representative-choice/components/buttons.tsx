@@ -4,10 +4,10 @@ import { UnvotedButton } from "./unvote-button";
 import { VoteButton } from "./vote-button";
 
 export function Buttons({
-  repId,
+  representativeId,
   publicUserRepId,
 }: {
-  repId: string;
+  representativeId: string;
   publicUserRepId: string;
 }) {
   let startStatus = "";
@@ -22,11 +22,15 @@ export function Buttons({
 
   return (
     <div className="flex w-48 items-center justify-between">
-      <VoteButton status={status} setStatus={setStatus} repId={repId} />
+      <VoteButton
+        status={status}
+        setStatus={setStatus}
+        representativeId={representativeId}
+      />
       <UnvotedButton
         status={status}
         setStatus={setStatus}
-        repId={repId}
+        representativeId={representativeId}
         publicUserRepId={publicUserRepId}
       />
     </div>

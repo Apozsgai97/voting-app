@@ -3,14 +3,14 @@ import { addToPublicVotes, changeRepId } from "../action";
 type Props = {
   status: string;
   setStatus: React.Dispatch<React.SetStateAction<string>>;
-  repId: string;
+  representativeId: string;
 };
 
-export function VoteButton({ status, setStatus, repId }: Props) {
+export function VoteButton({ status, setStatus, representativeId }: Props) {
   async function handleVote() {
     setStatus("voted");
-    await changeRepId(repId);
-    await addToPublicVotes(repId);
+    await changeRepId(representativeId);
+    await addToPublicVotes(representativeId);
   }
 
   return (
