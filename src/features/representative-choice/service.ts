@@ -76,5 +76,23 @@ export function createService(repository: Repository) {
     async getVoteByIds(electionId: string, representativeId: string) {
       return await repository.getVoteByIds(electionId, representativeId);
     },
+    async getRepresentativesAndVotes(id: string) {
+      const electionVotes = await repository.getVotesByElectionId(id);
+      const representatives = await repository.getAllRepresentatives();
+      const votesWithRepresentativeName = [];
+      for (let i = 0; i < electionVotes.length; i++) {
+        for (let j = 0; j < representatives.length; j++) {
+          if (electionVotes[i].representativeId === representatives[j].id) {
+            votesWithRepresentativeName.push({
+              name: representatives[j].name,
+              publicVotes: electionVotes[i].currentPublicVotes,
+              choice: electionVotes[i].choice,
+              agreementRate: electionVotes[i].agreementRate,
+            });
+          }
+        }
+      }
+      return votesWithRepresentativeName;
+    },
   };
 }
