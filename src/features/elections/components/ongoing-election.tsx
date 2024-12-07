@@ -1,13 +1,13 @@
 "use client";
 
-import { closeAndCalculateVoteResult } from "../action";
+import { closeAndCalculateVoteResult } from "../actions";
 import { Election } from "../types";
 import { OpenChoiceOne } from "./open-choice-one";
 import { OpenChoiceTwo } from "./open-choice-two";
 
 type Props = {
   election: Election;
-}
+};
 
 export function OngoingElection({ election }: Props) {
   async function handleClick() {

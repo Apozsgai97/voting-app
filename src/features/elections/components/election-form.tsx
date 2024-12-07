@@ -1,4 +1,4 @@
-import { addElection } from "../action";
+import { addElection } from "../actions";
 
 export async function ElectionForm() {
   return (
