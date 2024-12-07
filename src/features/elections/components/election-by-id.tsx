@@ -1,27 +1,27 @@
-import { ElectionVote, Representative } from "../types";
+import {RepVoteStats} from "../types";
 import { OngoingElection } from "./ongoing-election";
 import { ClosedElection } from "./closed-election";
 import { electionFeature } from "../instance";
 
 type Props = {
   id: string;
-  currentRepresentative: Representative;
-  votesByElection: ElectionVote[];
+  votesWithRepresentativeName: RepVoteStats[]
 };
 
 export async function ElectionByIdPage({
   id,
-  votesByElection,
+  votesWithRepresentativeName
 }: Props) {
   const election = await electionFeature.service.getElectionById(id);
   return (
     <main className="flex flex-col justify-center items-center p-0">
       {election.status === "ongoing" ? (
-        <OngoingElection
-          election={election}
-        />
+        <OngoingElection election={election} />
       ) : (
-        <ClosedElection election={election} votesByElection={votesByElection} />
+        <ClosedElection
+          election={election}
+          votesWithRepresentativeName={votesWithRepresentativeName}
+        />
       )}
     </main>
   );

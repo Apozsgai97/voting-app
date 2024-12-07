@@ -1,10 +1,10 @@
-import { ElectionVote } from "../types";
+import {RepVoteStats } from "../types";
 
 type Props = {
-  votesByElection: ElectionVote[];
+  votesWithRepresentativeName: RepVoteStats[];
 };
 
-export function RepVotingStats({ votesByElection }: Props) {
+export function RepVotingStats({votesWithRepresentativeName }: Props) {
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Representatives Statistics</h2>
@@ -20,11 +20,11 @@ export function RepVotingStats({ votesByElection }: Props) {
             </tr>
           </thead>
           <tbody>
-            {votesByElection.map((vote, index) => (
-              <tr key={vote.id}>
+            {votesWithRepresentativeName.map((vote, index) => (
+              <tr key={index}>
                 <th>{index + 1}</th>
-                <td>{vote.representativeId}</td>
-                <td>{vote.currentPublicVotes}</td>
+                <td>{vote.name}</td>
+                <td>{vote.publicVotes}</td>
                 <td>{vote.choice}</td>
                 <td> {vote.agreementRate}%</td>
               </tr>
