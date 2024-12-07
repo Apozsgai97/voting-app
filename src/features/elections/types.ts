@@ -37,3 +37,9 @@ export type Representative = {
   email: string;
   publicVotes: number;
 };
+export type RepVoteStats = {
+  name: string;
+  publicVotes: number;
+  choice: string;
+  agreementRate: number;
+};
