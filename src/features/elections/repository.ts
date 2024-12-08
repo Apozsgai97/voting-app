@@ -1,9 +1,9 @@
-import { db } from "@/db/index";
+import { Db } from "@/db/index";
 import { electionsTable } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
 import { ElectionData } from "./types";
 
-export function createElectionRepository() {
+export function createRepository(db: Db) {
   return {
     async getAllElections() {
       return await db
@@ -33,4 +33,4 @@ export function createElectionRepository() {
     },
   };
 }
-export type Repository = ReturnType<typeof createElectionRepository>;
+export type Repository = ReturnType<typeof createRepository>;

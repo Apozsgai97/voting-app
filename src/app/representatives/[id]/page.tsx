@@ -1,10 +1,10 @@
-import { electionFeature, RepresentativeByIdPage } from "@/features";
+import {  electionService, RepresentativeByIdPage } from "@/features";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = params.id;
 
-  const elections = await electionFeature.service.getAllElections();
+  const elections = await electionService.getAllElections();
 
   return (
     <>

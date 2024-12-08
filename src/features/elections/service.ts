@@ -1,7 +1,10 @@
+import { Db } from "@/db";
 import { calculateResults } from "./logic";
-import { Repository } from "./repository";
+import { createRepository} from "./repository";
 
-export function createElectionService(repository: Repository) {
+export function createService(db: Db) {
+  const repository = createRepository(db);
+  
   return {
     async getAllElections() {
       return await repository.getAllElections();
