@@ -1,4 +1,4 @@
-import { representativeFeature } from "../instance";
+import { representativeService } from "../instance";
 import { Election } from "../types";
 
 type Props = {
@@ -10,9 +10,7 @@ export async function PreviousVotesStats({
   representativeId,
 }: Props) {
   const votesByRepresentative =
-    await representativeFeature.service.getVotesByRepresentatives(
-      representativeId
-    );
+    await representativeService.getVotesByRepresentatives(representativeId);
 
   return (
     <section>

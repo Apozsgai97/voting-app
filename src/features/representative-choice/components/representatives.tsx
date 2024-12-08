@@ -1,12 +1,10 @@
-import { representativeFeature } from "../instance";
+import { representativeService} from "../instance";
 import { Representative } from "./representative";
 
 export async function Representatives() {
-  const representatives =
-    await representativeFeature.service.getAllRepresentatives();
+  const representatives = await representativeService.getAllRepresentatives();
 
-  const publicUserRepId =
-    await representativeFeature.service.getPublicUserRepId();
+  const publicUserRepId = await representativeService.getPublicUserRepId();
 
   return (
     <section className="flex flex-col justify-center mt-6 w-full lg:w-3/6">

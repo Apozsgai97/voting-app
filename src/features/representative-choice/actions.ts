@@ -1,29 +1,29 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { representativeFeature } from "./instance";
+import { representativeService } from "./instance";
 
 export async function addRepresentative(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
 
-  await representativeFeature.service.addRepresentative(name, email);
+  await representativeService.addRepresentative(name, email);
 
   revalidatePath("/representatives");
 }
 
 export async function changeRepId(id: string) {
-  await representativeFeature.service.changeRepIdForPublicUser(id);
+  await representativeService.changeRepIdForPublicUser(id);
   revalidatePath(`/representatives/${id}`);
 }
 
 export async function addToPublicVotes(id: string) {
-  await representativeFeature.service.addToPublicVotes(id);
+  await representativeService.addToPublicVotes(id);
   revalidatePath(`/representatives/${id}`);
 }
 
 export async function takeFromPublicVotes(id: string) {
-  await representativeFeature.service.takeFromPublicVotes(id);
+  await representativeService.takeFromPublicVotes(id);
   revalidatePath(`/representatives/${id}`);
 }
 
@@ -32,7 +32,7 @@ export async function addToPublicPreference(
   electionId: string,
   choiceNumber: number
 ) {
-  await representativeFeature.service.addToPublicPreference(
+  await representativeService.addToPublicPreference(
     id,
     electionId,
     choiceNumber

@@ -1,4 +1,4 @@
-import { db } from "@/db/index";
+import { Db } from "@/db/index";
 import { electionVotesTable, representativesTable } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
 import { RepresentativeData } from "./types";
@@ -8,7 +8,7 @@ const publicUser = {
   repId: "",
 };
 
-export function createRepository() {
+export function createRepository(db: Db) {
   return {
     async getAllRepresentatives() {
       return await db.select().from(representativesTable);

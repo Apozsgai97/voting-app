@@ -2,7 +2,7 @@ import { Election } from "../types";
 import { Buttons } from "./buttons";
 import { PreviousVotesStats } from "./previous-votes-stats";
 import { PublicVotes } from "./public-votes";
-import { representativeFeature } from "../instance";
+import { representativeService } from "../instance";
 
 type Props = {
   elections: Election[];
@@ -10,9 +10,7 @@ type Props = {
 };
 export async function RepresentativeByIdPage({ elections, id }: Props) {
   const representativeData =
-    await representativeFeature.service.getPublicUserChoiceAndRepresentative(
-      id
-    );
+    await representativeService.getPublicUserChoiceAndRepresentative(id);
 
   return (
     <main className="flex flex-col justify-center items-center p-0">
