@@ -1,10 +1,9 @@
-import { RepVoteStats } from "../types";
+import { electionService } from "../instance";
 
-type Props = {
-  votesWithRepresentativeName: RepVoteStats[];
-};
 
-export function RepVotingStats({ votesWithRepresentativeName }: Props) {
+export async function RepVotingStats({id}:{id: string}) {
+  const votesWithRepresentativeName =
+    await electionService.getRepresentativesAndVotes(id)
   return (
     <section>
       <h2 className="text-2xl font-bold mt-4">Representatives Statistics</h2>

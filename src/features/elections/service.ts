@@ -2,10 +2,18 @@ import { Db } from "@/db";
 import { calculateResults } from "./logic";
 import { createRepository} from "./repository";
 
-export function createService(db: Db) {
+export function createService(db: Db, getRepresentativesAndVotes: (id: string) => Promise<{
+    name: string;
+    publicVotes: number;
+    choice: string;
+    agreementRate: number;
+}[]> ) {
   const repository = createRepository(db);
   
   return {
+    async getRepresentativesAndVotes(id:string){
+      return await getRepresentativesAndVotes(id)
+    },
     async getAllElections() {
       return await repository.getAllElections();
     },

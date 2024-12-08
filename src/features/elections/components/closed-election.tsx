@@ -1,16 +1,15 @@
-import { RepVoteStats } from "../types";
 import { Election } from "../types";
 import { RepVotingStats } from "./rep-voting-stats";
 import { VotingStatistics } from "./voting-stats";
 
 type Props = {
   election: Election;
-  votesWithRepresentativeName: RepVoteStats[];
+ id:string
 };
 
 export async function ClosedElection({
   election,
-  votesWithRepresentativeName,
+  id
 }: Props) {
   return (
     <>
@@ -19,7 +18,7 @@ export async function ClosedElection({
       </h1>
       <VotingStatistics election={election} />
       <RepVotingStats
-        votesWithRepresentativeName={votesWithRepresentativeName}
+        id={id}
       />
     </>
   );

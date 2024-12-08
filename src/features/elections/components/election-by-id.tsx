@@ -1,16 +1,13 @@
-import { RepVoteStats } from "../types";
 import { OngoingElection } from "./ongoing-election";
 import { ClosedElection } from "./closed-election";
 import { electionService } from "../instance";
 
 type Props = {
   id: string;
-  votesWithRepresentativeName: RepVoteStats[];
 };
 
 export async function ElectionByIdPage({
   id,
-  votesWithRepresentativeName,
 }: Props) {
   const election = await electionService.getElectionById(id);
   return (
@@ -20,7 +17,7 @@ export async function ElectionByIdPage({
       ) : (
         <ClosedElection
           election={election}
-          votesWithRepresentativeName={votesWithRepresentativeName}
+         id={id}
         />
       )}
     </main>
