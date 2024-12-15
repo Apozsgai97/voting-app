@@ -1,6 +1,7 @@
 import { Db } from "@/db";
 import { calculateResults } from "./logic";
 import { createRepository} from "./repository";
+import { ElectionData } from "./types";
 
 export function createService(db: Db, getRepresentativesAndVotes: (id: string) => Promise<{
     name: string;
@@ -11,8 +12,8 @@ export function createService(db: Db, getRepresentativesAndVotes: (id: string) =
   const repository = createRepository(db);
   
   return {
-    async getRepresentativesAndVotes(id:string){
-      return await getRepresentativesAndVotes(id)
+    async getRepresentativesAndVotes(id: string) {
+      return await getRepresentativesAndVotes(id);
     },
     async getAllElections() {
       return await repository.getAllElections();
@@ -41,6 +42,9 @@ export function createService(db: Db, getRepresentativesAndVotes: (id: string) =
       const election = await repository.getElectionById(id);
       const { result1, result2 } = calculateResults(election!);
       repository.changeVoteResult(result1, result2, id);
+    },
+    async seedElection(electionData: ElectionData) {
+      await repository.addElection(electionData);
     },
   };
 }
