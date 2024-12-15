@@ -1,6 +1,6 @@
 import { Db } from "@/db";
 import { createRepository} from "./repository";
-import { RepresentativeData } from "./types";
+import { ElectionVoteData, RepresentativeData } from "./types";
 import { EmailSchema, NameSchema } from "./validation";
 
 export function createService(db: Db) {
@@ -102,5 +102,18 @@ export function createService(db: Db) {
 
       return { representative, publicUserRepId };
     },
+    async seedRepresentative(name: string, email: string, publicVotes: number) {
+
+      const representative: RepresentativeData = {
+        name: name,
+        email:email,
+        publicVotes: publicVotes,
+      };
+
+      await repository.addRepresentative(representative);
+    },
+    async seedPublicVotes(electionVoteData: ElectionVoteData){
+      await repository.addElectionVote(electionVoteData);
+    }
   };
 }

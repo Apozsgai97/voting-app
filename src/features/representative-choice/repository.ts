@@ -1,7 +1,7 @@
 import { Db } from "@/db/index";
 import { electionVotesTable, representativesTable } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
-import { RepresentativeData } from "./types";
+import { ElectionVoteData, RepresentativeData } from "./types";
 
 const publicUser = {
   id: "a3c6f123-4e4a-42b5-80d9-e6b0cd7f5a4f",
@@ -79,6 +79,9 @@ export function createRepository(db: Db) {
             eq(electionVotesTable.representativeId, id)
           )
         );
+    },
+    async addElectionVote(electionVoteData: ElectionVoteData) {
+      await db.insert(electionVotesTable).values(electionVoteData);
     },
   };
 }
