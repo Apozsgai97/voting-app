@@ -1,6 +1,9 @@
-import { electionService, representativeService } from "./features";
+import {
+  electionService,
+  representativeService,
+  ElectionVoteData,
+} from "./features";
 import { ElectionData } from "./features/elections/types";
-import { ElectionVoteData } from "./features/representative-choice/types";
 
 async function seedData() {
   const representatives = [
