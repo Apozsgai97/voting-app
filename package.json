@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "tsx --watch --test",
-    "seed": "tsx src/db/seed.ts"
+    "seed": "tsx src/seed.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
