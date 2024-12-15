@@ -33,10 +33,10 @@ export function createService(db: Db, getRepresentativesAndVotes: (id: string) =
         publish_date: date,
       };
 
-      repository.addElection(election);
+      await repository.addElection(election);
     },
     async getElectionById(id: string) {
-      return repository.getElectionById(id);
+      return await repository.getElectionById(id);
     },
     async calculateVoteResult(id: string) {
       const election = await repository.getElectionById(id);
