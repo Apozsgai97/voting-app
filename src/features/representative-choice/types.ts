@@ -33,3 +33,12 @@ export type Election = {
   status: string;
   publish_date: string;
 };
+export type ElectionVoteData = {
+  representativeId: string;
+  electionId: string;
+  choice1Votes: number;
+  choice2Votes: number;
+  currentPublicVotes: number;
+  choice: string;
+  agreementRate: number;
+};
